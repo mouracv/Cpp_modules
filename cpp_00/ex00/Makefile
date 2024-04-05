@@ -1,0 +1,42 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/03 15:45:24 by aleperei          #+#    #+#              #
+#    Updated: 2024/04/03 17:23:51 by aleperei         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = megaphone
+
+CC = c++
+
+CFLAGS = -Wall -Wextra -std=c++98
+
+SRCS = megaphone.cpp
+
+RM = rm -f
+
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c -o $@ $< 
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
+
