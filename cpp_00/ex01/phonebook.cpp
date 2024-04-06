@@ -17,6 +17,8 @@
  #include <string.h>
 
 
+
+
 class Carros
 {
     public:
@@ -26,8 +28,13 @@ class Carros
         int fuel;
         int tamanho;
         char *marca;
+        void   car_print(void);
 };
 
+void   Carros::car_print(void)
+{
+    std::cout << "metodo chamado kkkk" << std::endl;
+}
 
 Carros::Carros(int fuel_value, int size, char *name)
     : fuel(fuel_value), tamanho(size), marca(name) //lista de inicializazao
@@ -49,6 +56,7 @@ Carros::~Carros()
     Carros alex(100, 20, strdup("BUGGATI"));
     
     std:: cout << alex.marca << " tem um comprimento de " << alex.tamanho << " e tam a capacidade de guardar " << alex.fuel << std::endl;
+    alex.car_print();
     return (0);
  }
  
