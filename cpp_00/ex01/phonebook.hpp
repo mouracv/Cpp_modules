@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:31:59 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/11 16:01:29 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:01:31 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
+ #include <iostream>
+ #include <string>
+#include <cstring>
 
-Phonebook::Phonebook(void)
+class Phonebook
 {
-    
-}
+    private:
+        
+    public:
+        Phonebook(void);  
+};
+
+
+#endif
+
+
+
