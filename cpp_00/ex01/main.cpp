@@ -6,11 +6,11 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 15:18:28 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/11 16:08:46 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/12 18:08:14 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 void set_visual(void)
 {
@@ -25,25 +25,42 @@ void set_visual(void)
 
 }
 
-
+void execute_cmd(std::string& input, Phonebook& list)
+{
+    if (!input.compare("ADD")) 
+        list.excuteAdd();
+    else if (!input.compare("SEARCH"))
+        list.excuteSearch();
+    
+}
 
 int main(void)
 {
-    // Phonebook list;
+    Phonebook list;
     std::string input;
+    
     while (1)
     {
         set_visual();
         std::cout << std::endl << "Prompt: ";
         std::getline(std::cin, input);
-
-        if (!input.compare("ADD") || !input.compare("SEARCH"))
+        if (std::cin.eof())
+            break;
+        if (input.empty())
+            continue;
+        if (input.compare("ADD") && input.compare("SEARCH") && input.compare("EXIT"))
         {
-            std::cout << "alex funciona \n";
+            std::cerr << std::endl << "Invalid input" << std::endl;
+            continue;
         }
+        else if (!input.compare("SEARCH") || !input.compare("ADD"))
+            execute_cmd(input, list);
+        else if (!input.compare("EXIT"))
+            break;
+        
 
         
-        break;
+        // break;
     }
 
     return (0);
