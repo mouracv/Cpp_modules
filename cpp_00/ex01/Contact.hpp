@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 12:52:16 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/12 18:09:38 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:39:41 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ class Contact
         std::string drakest_secret;        
     public:
         Contact(void);
+        
+        int     contact_saved;
 
-        void setFirstName(std::string name);
+        void setFirstName(std::string& name);
         void setLastName(std::string& last_name);
         void setNicktName(std::string& nick_name);
         void setPhoneNumber(std::string& number);

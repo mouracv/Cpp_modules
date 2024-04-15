@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:31:59 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/12 18:13:20 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/15 17:03:54 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ Phonebook::Phonebook(void)
     
 }
 
-// static void    choose_field(Contact& list, int opc, std::string& input)
-// {
-//     if (!opc)
-//         list.setFirstName(input);
-//     else if (opc == 1)
-//         list.setLastName(input);
-//     else if (opc == 2)
-//         list.setNicktName(input);
-//     else if (opc == 3)
-//         list.setPhoneNumber(input);
-//     else if (opc == 4)
-//         list.setSecret(input);
-//     return;
-// }
+static void    choose_field(Contact& contact_list, int opc, std::string& input)
+{
+    if (!opc)
+        contact_list.setFirstName(input);
+    else if (opc == 1)
+        contact_list.setLastName(input);
+    else if (opc == 2)
+        contact_list.setNicktName(input);
+    else if (opc == 3)
+        contact_list.setPhoneNumber(input);
+    else if (opc == 4)
+        contact_list.setSecret(input);
+    return;
+}
 
 void Phonebook::excuteAdd(void)
 {
@@ -61,29 +61,78 @@ void Phonebook::excuteAdd(void)
             std::cerr << "Invalid field, please try again!" << std::endl;
             continue;
         }
-        // choose_field(this->info[this->idx], option, input);
-        if (!option)
-            this->info[this->idx].setFirstName(input);
-        else if (option == 1)
-            this->info[this->idx].setLastName(input);
-        else if (option == 2)
-            this->info[this->idx].setNicktName(input);
-        else if (option == 3)
-            this->info[this->idx].setPhoneNumber(input);
-        else if (option == 4)
-            this->info[this->idx].setSecret(input);
+        choose_field(this->info[this->idx], option, input);
         option++;
     }
     std::cout << std::endl << "Please press enter to continue!";
     std::getline(std::cin, input);
+    if (this->info[this->idx].contact_saved < 7)
+        this->info[this->idx].contact_saved++;
     this->idx++;
+}
+
+
+void display_info(Contact& contact_list)
+{
+    std::cout << "First name: " << contact_list.getFirstName() << std::endl;
+    std::cout << "Last name: " << contact_list.getLastName() << std::endl;
+    std::cout << "Nicknem: " << contact_list.getNicktName() << std::endl;
+    std::cout << "Phonenumber: " << contact_list.getPhoneNumber() << std::endl;
+    std::cout << "Darkest sercret: " << contact_list.getSecret() << std::endl;
+}
+
+
+void display_table(const std::string& output)
+{
+    if (output.length() > 10)
+    {
+        for (int i = 0; i < 9; i++){
+            std::cout << output[i];
+        }
+        std::cout << ".|";
+    }
+    else
+    {
+        std::cout << std::setfill(' ') << std::setw(10);
+        std::cout << output << '|';
+    }
 }
 
 void Phonebook::excuteSearch(void)
 {
-    for (int i = 0; i < 6; i++)
-    {
-        std::cout << this->info[i].getFirstName() << this->info[i].getLastName() << i << std::endl;
-    }
+    std::string input;
+    int         index;
     
+    if (this->info[0].contact_saved == 0)
+    {
+        std::cout << "No contacts saved!";
+        return;
+    }
+    std::cout << std::endl << std::endl << '|' << "     Index" << '|';
+    std::cout << "First Name"  << '|' << " Last Name"  << '|' << "  Nickname"  << '|' << std::endl ;
+    for (int i = 0; i < this->info[i].contact_saved; i++)
+    {
+        std::cout << '|' << "         " << (i + 1) << "|";
+        display_table(this->info[i].getFirstName());
+        display_table(this->info[i].getLastName());
+        display_table(this->info[i].getNicktName());
+        std::cout << std::endl;
+    }
+    std::cout << std::endl << std::endl;
+    while (1)
+    {
+        std::cout << "Please select a index: ";
+        std::getline(std::cin, input);
+        index = std::atoi(input.c_str());
+        if (index <= 0 || index > 8)
+        {
+            std::cerr << "Invalid index, try gain!" << std::endl;
+            continue;
+        }
+        else
+        {
+            display_info(this->info[index]);
+            break;
+        }
+    }
 }

@@ -6,41 +6,42 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 12:56:40 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/12 18:09:28 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:39:23 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 //CONSTRUCTOR
-Contact::Contact(void)
+Contact::Contact(void) 
+: contact_saved(0)
 {
     
 }
 
 //SETERS
-void Contact::setFirstName(std::string name){
+void Contact::setFirstName(std::string& name){
     this->first_name = name;
     return;
 }
 
 void Contact::setLastName(std::string& last_name){
-    this->first_name = last_name;
+    this->last_name = last_name;
     return;
 }
 
 void Contact::setNicktName(std::string& nick_name){
-    this->first_name = nick_name;
+    this->nick_name = nick_name;
     return;
 }
 
 void Contact::setPhoneNumber(std::string& number){
-    this->first_name = number;
+    this->phone_number = number;
     return;
 }
 
 void Contact::setSecret(std::string& sercret){
-    this->first_name = sercret;
+    this->drakest_secret = sercret;
     return;
 }
 

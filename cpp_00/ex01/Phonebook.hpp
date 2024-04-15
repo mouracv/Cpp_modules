@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:31:59 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/12 14:29:27 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:53:13 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #define PHONEBOOK_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
-#include <cstring>  
+#include <cstdlib>  
 #include "Contact.hpp"
 
 
