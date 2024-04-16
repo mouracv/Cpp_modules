@@ -27,6 +27,9 @@ class Phonebook
         int idx;
     public:
         Phonebook(void);
+
+        int     contact_saved;
+        
         void excuteAdd(void);
         void excuteSearch(void);
 };

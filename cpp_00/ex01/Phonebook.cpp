@@ -14,7 +14,7 @@
 
 
 Phonebook::Phonebook(void) 
-: idx(0)
+: idx(0), contact_saved(0)
 {
     
 }
@@ -39,6 +39,7 @@ void Phonebook::excuteAdd(void)
     int option = 0;
     std::string input;
 
+    std::cout << std::endl;
     if (this->idx == 8)
         this->idx = 0;
     while (option < 5)
@@ -64,10 +65,10 @@ void Phonebook::excuteAdd(void)
         choose_field(this->info[this->idx], option, input);
         option++;
     }
-    std::cout << std::endl << "Please press enter to continue!";
+    std::cout << std::endl << "Please press enter to continue!\n";
     std::getline(std::cin, input);
-    if (this->info[this->idx].contact_saved < 7)
-        this->info[this->idx].contact_saved++;
+    if (this->contact_saved < 8)
+        this->contact_saved++;
     this->idx++;
 }
 
@@ -76,7 +77,7 @@ void display_info(Contact& contact_list)
 {
     std::cout << "First name: " << contact_list.getFirstName() << std::endl;
     std::cout << "Last name: " << contact_list.getLastName() << std::endl;
-    std::cout << "Nicknem: " << contact_list.getNicktName() << std::endl;
+    std::cout << "Nickname: " << contact_list.getNicktName() << std::endl;
     std::cout << "Phonenumber: " << contact_list.getPhoneNumber() << std::endl;
     std::cout << "Darkest sercret: " << contact_list.getSecret() << std::endl;
 }
@@ -103,14 +104,15 @@ void Phonebook::excuteSearch(void)
     std::string input;
     int         index;
     
-    if (this->info[0].contact_saved == 0)
+    if (this->contact_saved == 0)
     {
-        std::cout << "No contacts saved!";
+        std::cout << std::endl << "No contacts saved yet!\n" << std::endl;
         return;
     }
-    std::cout << std::endl << std::endl << '|' << "     Index" << '|';
-    std::cout << "First Name"  << '|' << " Last Name"  << '|' << "  Nickname"  << '|' << std::endl ;
-    for (int i = 0; i < this->info[i].contact_saved; i++)
+    std::cout << std::endl << std::endl  << '+' << std::setfill('-') << std::setw(44) << '+' << std::endl;
+    std::cout << '|' << "     Index" << '|' << "First Name"  << '|' ;
+    std::cout << " Last Name"  << '|' << "  Nickname"  << '|' << std::endl ;
+    for (int i = 0; i < this->contact_saved; i++)
     {
         std::cout << '|' << "         " << (i + 1) << "|";
         display_table(this->info[i].getFirstName());
@@ -118,20 +120,21 @@ void Phonebook::excuteSearch(void)
         display_table(this->info[i].getNicktName());
         std::cout << std::endl;
     }
+    std::cout << '+' << std::setfill('-') << std::setw(44) << '+' << std::endl;
     std::cout << std::endl << std::endl;
     while (1)
     {
         std::cout << "Please select a index: ";
         std::getline(std::cin, input);
         index = std::atoi(input.c_str());
-        if (index <= 0 || index > 8)
+        if (index <= 0 || index > 8 || (index) > this->contact_saved)
         {
-            std::cerr << "Invalid index, try gain!" << std::endl;
+            std::cerr << "Invalid index, try gain!" << std::endl << std::endl;
             continue;
         }
         else
         {
-            display_info(this->info[index]);
+            display_info(this->info[index - 1]);
             break;
         }
     }

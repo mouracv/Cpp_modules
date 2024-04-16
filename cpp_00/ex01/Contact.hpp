@@ -17,12 +17,6 @@
 #include <iostream>
 #include <string>
 
-// #include "Phonebook.hpp"
-
-//The contact fields are: first name, last name, nickname, phone number, and
-// darkest secret. A saved contact can’t have empty fields.
-
-
 class Contact
 {
     private:
@@ -34,8 +28,6 @@ class Contact
     public:
         Contact(void);
         
-        int     contact_saved;
-
         void setFirstName(std::string& name);
         void setLastName(std::string& last_name);
         void setNicktName(std::string& nick_name);

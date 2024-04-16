@@ -14,15 +14,14 @@
 
 void set_visual(void)
 {
-    std::cout <<"___________________________"<< std::endl;
+    std::cout <<"+-------------------------+"<< std::endl;
     std::cout <<"|                         |"<< std::endl;
     std::cout <<"|The program only accepts:|"<< std::endl;
     std::cout <<"|                         |"<< std::endl;
     std::cout <<"|- ADD                    |"<< std::endl;
     std::cout <<"|- SEARCH                 |"<< std::endl;
     std::cout <<"|- EXIT                   |"<< std::endl;
-    std::cout <<"|_________________________|"<< std::endl;
-
+    std::cout <<"+-------------------------+"<< std::endl;
 }
 
 void execute_cmd(std::string& input, Phonebook& list)
@@ -31,7 +30,6 @@ void execute_cmd(std::string& input, Phonebook& list)
         list.excuteAdd();
     else if (!input.compare("SEARCH"))
         list.excuteSearch();
-    
 }
 
 int main(void)
@@ -50,17 +48,13 @@ int main(void)
             continue;
         if (input.compare("ADD") && input.compare("SEARCH") && input.compare("EXIT"))
         {
-            std::cerr << std::endl << "Invalid input" << std::endl;
+            std::cerr << std::endl << "Invalid input!" << std::endl;
             continue;
         }
         else if (!input.compare("SEARCH") || !input.compare("ADD"))
             execute_cmd(input, list);
         else if (!input.compare("EXIT"))
             break;
-        
-
-        
-        // break;
     }
 
     return (0);

@@ -13,9 +13,7 @@
 #include "Contact.hpp"
 
 //CONSTRUCTOR
-Contact::Contact(void) 
-: contact_saved(0)
-{
+Contact::Contact(void) {
     
 }
 
