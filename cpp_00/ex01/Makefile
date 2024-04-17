@@ -6,7 +6,7 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/03 15:45:24 by aleperei          #+#    #+#              #
-#    Updated: 2024/04/03 17:23:51 by aleperei         ###   ########.fr        #
+#    Updated: 2024/04/17 13:23:18 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = Phonebook.cpp \
 		Contact.cpp \
-		main.cpp
+		main.cpp \
 
 RM = rm -f
 

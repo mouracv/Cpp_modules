@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:31:59 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/15 17:03:54 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/17 18:15:33 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,39 @@ static void    choose_field(Contact& contact_list, int opc, std::string& input)
     return;
 }
 
+int trim(std::string& input)
+{    
+    size_t index = input.find_first_not_of(" \t");
+   
+    if (index != std::string::npos)
+        input.erase(0, index);
+    
+    index = input.find_last_not_of(" \t");
+    if (index != std::string::npos)
+        input.erase(index + 1);
+    
+    index = input.find_first_of(" \t");
+    while (!input.empty() && index != std::string::npos)
+    {
+        size_t last = input.find_first_not_of(" \t", index);
+        if (last == std::string::npos)
+            return (1);
+        if (last != std::string::npos && last > index)
+            input.erase((index), (last - (index)));
+        if (!input.empty())
+            input.insert(index, " ");
+        index = input.find_first_of(" \t", (index + 1));
+    }
+    return (0);
+}
+
 void Phonebook::excuteAdd(void)
 {
     int option = 0;
     std::string input;
 
     std::cout << std::endl;
+    
     if (this->idx == 8)
         this->idx = 0;
     while (option < 5)
@@ -56,8 +83,14 @@ void Phonebook::excuteAdd(void)
             std::cout << "Darkest secret: ";
         std::getline(std::cin, input);
         if (std::cin.eof())
+        {
+            std::cout << std::endl << std::endl;
             return;
-        if ((input.empty()))
+        }
+        // if (option < 3)
+        //     trim(input);
+        // std::cout << "(" << input << ")" << std::endl;
+        if ((trim(input) || input.empty()))
         {
             std::cerr << "Invalid field, please try again!" << std::endl;
             continue;
@@ -75,6 +108,7 @@ void Phonebook::excuteAdd(void)
 
 void display_info(Contact& contact_list)
 {
+    std::cout << std::endl;
     std::cout << "First name: " << contact_list.getFirstName() << std::endl;
     std::cout << "Last name: " << contact_list.getLastName() << std::endl;
     std::cout << "Nickname: " << contact_list.getNicktName() << std::endl;
@@ -109,9 +143,11 @@ void Phonebook::excuteSearch(void)
         std::cout << std::endl << "No contacts saved yet!\n" << std::endl;
         return;
     }
+    
     std::cout << std::endl << std::endl  << '+' << std::setfill('-') << std::setw(44) << '+' << std::endl;
     std::cout << '|' << "     Index" << '|' << "First Name"  << '|' ;
     std::cout << " Last Name"  << '|' << "  Nickname"  << '|' << std::endl ;
+    
     for (int i = 0; i < this->contact_saved; i++)
     {
         std::cout << '|' << "         " << (i + 1) << "|";
@@ -120,14 +156,20 @@ void Phonebook::excuteSearch(void)
         display_table(this->info[i].getNicktName());
         std::cout << std::endl;
     }
+    
     std::cout << '+' << std::setfill('-') << std::setw(44) << '+' << std::endl;
     std::cout << std::endl << std::endl;
+    
     while (1)
     {
         std::cout << "Please select a index: ";
         std::getline(std::cin, input);
+        if (std::cin.eof())
+            break;
         index = std::atoi(input.c_str());
-        if (index <= 0 || index > 8 || (index) > this->contact_saved)
+        if (!input.compare("exit"))
+            break;
+        else if (index <= 0 || index > 8 || (index) > this->contact_saved)
         {
             std::cerr << "Invalid index, try gain!" << std::endl << std::endl;
             continue;
@@ -138,4 +180,5 @@ void Phonebook::excuteSearch(void)
             break;
         }
     }
+    std::cout << std::endl << std::endl;
 }
