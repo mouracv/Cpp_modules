@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 15:18:28 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/12 18:08:14 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:45:05 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int main(void)
         std::cout << std::endl << "Prompt: ";
         std::getline(std::cin, input);
         if (std::cin.eof())
+        {
+            std::cout << std::endl;
             break;
+        }
         if (input.empty())
             continue;
         if (input.compare("ADD") && input.compare("SEARCH") && input.compare("EXIT"))
@@ -54,9 +57,8 @@ int main(void)
         else if (!input.compare("SEARCH") || !input.compare("ADD"))
             execute_cmd(input, list);
         else if (!input.compare("EXIT"))
-            break;
+            break;        
     }
-
     return (0);
 }
  

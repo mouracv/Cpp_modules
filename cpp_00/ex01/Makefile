@@ -6,15 +6,15 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/03 15:45:24 by aleperei          #+#    #+#              #
-#    Updated: 2024/04/17 13:23:18 by aleperei         ###   ########.fr        #
+#    Updated: 2024/04/18 10:22:14 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Phonebook
 
-CC = c++
+CXX = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = Phonebook.cpp \
 		Contact.cpp \
@@ -27,10 +27,10 @@ OBJS = $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c -o $@ $< 
+	$(CXX) $(CXXFLAGS) -c -o $@ $< 
 
 clean:
 	$(RM) $(OBJS)

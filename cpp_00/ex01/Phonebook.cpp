@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:31:59 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/17 18:15:33 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/18 13:44:30 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,6 @@ void Phonebook::excuteAdd(void)
             std::cout << std::endl << std::endl;
             return;
         }
-        // if (option < 3)
-        //     trim(input);
-        // std::cout << "(" << input << ")" << std::endl;
         if ((trim(input) || input.empty()))
         {
             std::cerr << "Invalid field, please try again!" << std::endl;
