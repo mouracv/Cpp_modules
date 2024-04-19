@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 13:53:41 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/19 16:09:02 by aleperei         ###   ########.fr       */
+/*   Created: 2024/04/19 17:51:54 by aleperei          #+#    #+#             */
+/*   Updated: 2024/04/19 18:39:39 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"      
 #define GREEN   "\033[32m"      
-#define YELLOW  "\033[33m" 
+#define YELLOW  "\033[33m"      
+#define BLUE    "\033[34m"      
+#define MAGENTA "\033[35m"      
+#define CYAN    "\033[36m"  
 
 #include <iostream>
 #include <string>
 
-class Zombie
+class Weapon
 {
     private:
-        std::string _name;
+        std::string _type;
     public:
-        Zombie(std::string name);
-        ~Zombie();
+        Weapon(std::string input);
+        ~Weapon(void);
         
-        void announce( void );    
+        const std::string& getType(void) const;
+        void setType(std::string new_type);
 };
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+
 
 #endif

@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ad.cpp                                             :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 14:22:54 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/18 14:25:25 by aleperei         ###   ########.fr       */
+/*   Created: 2024/04/19 18:20:55 by aleperei          #+#    #+#             */
+/*   Updated: 2024/04/19 18:48:45 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP  
 
-void randomChump(std::string name)
+#include "Weapon.hpp"
+
+class HumanA
 {
-    Zombie alex(name);
+    private:
+        std::string _name;
+        Weapon& _obj;
+    public:
+        HumanA(std::string new_name, Weapon& knife);
+        ~HumanA(void);
     
-    alex.announce();
-    return;
-}
+        void attack(void);
+};
+
+
+
+
+#endif

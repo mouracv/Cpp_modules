@@ -5,26 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 13:52:17 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/19 16:10:28 by aleperei         ###   ########.fr       */
+/*   Created: 2024/04/19 18:15:06 by aleperei          #+#    #+#             */
+/*   Updated: 2024/04/19 18:34:23 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-
-int main()
+int main(void)
 {
-    Zombie *alex = newZombie("twiliit");
-    alex->announce();
-    delete alex;
-    
-    randomChump("SAITAMA");
-    randomChump("GENOS");
-    randomChump("KAMUI");
-
-    Zombie *lo = newZombie("Marvin");
-    lo->announce();
-    delete lo;
-    return (0);    
+    // Weapon& stringREF;
+    //     {
+    // Weapon club = Weapon("crude spiked club");
+    // HumanA bob("Bob", club);
+    // bob.attack();
+    // club.setType("some other type of club");
+    // bob.attack();
+    // }
+    // {
+    // Weapon club = Weapon("crude spiked club");
+    // HumanB jim("Jim");
+    // jim.setWeapon(club);
+    // jim.attack();
+    // club.setType("some other type of club");
+    // jim.attack();
+    // }
+    // return 0;
 }

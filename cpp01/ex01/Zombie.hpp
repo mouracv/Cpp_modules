@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:53:41 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/19 16:09:02 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:37:13 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 class Zombie
 {
     private:
         std::string _name;
     public:
-        Zombie(std::string name);
+        Zombie(void);
         ~Zombie();
         
-        void announce( void );    
+        void announce( void );
+        void setname(std::string str);
 };
 
-Zombie* newZombie( std::string name );
-void randomChump( std::string name );
+Zombie* zombieHorde( int N, std::string name );
 
 #endif

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 13:55:58 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/19 16:08:00 by aleperei         ###   ########.fr       */
+/*   Created: 2024/04/19 17:56:21 by aleperei          #+#    #+#             */
+/*   Updated: 2024/04/19 18:17:40 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-//Constructor
-Zombie::Zombie(std::string name) : _name(name)
+
+Weapon::Weapon(std::string input) : _type(input) {}
+
+Weapon::~Weapon(void)
 {
-    
+    std::cout << RED << "Default destructor called" << RESET << std::endl;
 }
 
-Zombie::~Zombie()
+void Weapon::setType(std::string new_type)
 {
-       std::cout << RED << _name << ": destructor called!!" << RESET << std::endl;
+    _type = new_type;
+    return ;
 }
 
-//Methods
-void Zombie::announce(void)
-{
-    std::cout << YELLOW << _name << ": BraiiiiiiinnnzzzZ..." << RESET << std::endl;
+const std::string& Weapon::getType(void) const{
+    return (_type);
 }
-
-
-
