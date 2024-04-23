@@ -6,10 +6,18 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:02:15 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/22 17:36:37 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:09:10 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#define RESET   "\033[0m"
+#define RED     "\033[31m"      
+#define GREEN   "\033[32m"      
+#define YELLOW  "\033[33m"      
+#define BLUE    "\033[34m"      
+#define MAGENTA "\033[35m"      
+#define CYAN    "\033[36m"  
 
 #include <iostream>
 #include <fstream>
@@ -21,9 +29,10 @@ void replace(std::string& input, const std::string& tofind, const std::string&  
     int i = 0;
     while (input.find(tofind, i) != std::string::npos)
     {
-        input.find(i, (i + tofind.size()));
+        i = input.find(tofind, i);
+        input.erase(i, (tofind.size()));
         input.insert(i, toreplace.c_str());
-        i += tofind.size();
+        i += toreplace.size();
     }
     
 }
@@ -35,12 +44,12 @@ int main(int argc, char* argv[])
     std::string filename;
     std::string input;
     
-    if (argc != 4)
+    if (argc != 4 || !argv[2][0] || !argv[3][0])
     {
-        std::cerr << "Wrong number of arguments!" << std::endl;
+        std::cerr << "Invalid arguments!" << std::endl;
         return (1);
     }
-
+    
     input_file.open(argv[1]);
     if (!input_file.is_open())
     {
@@ -66,9 +75,7 @@ int main(int argc, char* argv[])
         if (!input_file.eof())
             output_file << '\n';
     }
-    
-
-    
+        
     output_file.close();
     input_file.close();
     return (0);
