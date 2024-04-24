@@ -6,19 +6,19 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:10:31 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/24 16:56:28 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:29:26 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
  #include "Harl.hpp"
 
-int main(void)
+int main(int ac, char **av)
 {
-    Harl alex;
+    if (ac != 2)
+        return (1);
     
-    alex.complain("DEBUG");
-    alex.complain("INFO");
-    alex.complain("WARNING");
-    alex.complain("ERROR");
+    Harl merry;
+    
+    merry.complain(av[1]);;
     return (0);
 } 
