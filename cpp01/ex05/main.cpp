@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:10:31 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/24 16:56:28 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:24:39 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int main(void)
     alex.complain("INFO");
     alex.complain("WARNING");
     alex.complain("ERROR");
+    // alex.complain("ans");
     return (0);
 } 

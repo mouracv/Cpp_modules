@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:53:41 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/19 18:37:13 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:05:35 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
 
 class Zombie
 {

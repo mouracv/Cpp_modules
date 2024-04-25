@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:02:15 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/23 17:09:10 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:11:30 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
     std::string filename;
     std::string input;
     
-    if (argc != 4 || !argv[2][0] || !argv[3][0])
+    if (argc != 4 || !argv[1][0] || !argv[2][0] || !argv[3][0])
     {
         std::cerr << "Invalid arguments!" << std::endl;
         return (1);

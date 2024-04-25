@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 18:20:55 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/22 11:48:06 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:09:12 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ class HumanA
     
         void attack(void);
 };
-
 
 #endif

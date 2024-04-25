@@ -6,12 +6,13 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:51:11 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/19 18:36:54 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:05:56 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+#include <cstdlib>
 
 int main(void)
 {
@@ -19,7 +20,7 @@ int main(void)
     std::string input;
 
     std::cout << "Choose the number of the zombies: ";
-    getline(std::cin, input);
+    std::getline(std::cin, input);
     n = atoi(input.c_str());
     
     Zombie* horde = zombieHorde(n, "I like human meat!");
