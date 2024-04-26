@@ -6,14 +6,14 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:55:58 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/19 16:40:06 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/26 10:28:35 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 //Constructor and Destructor
-Zombie::Zombie(void) : _name("")
+Zombie::Zombie(void) : _name("zombies")
 {
     
 }
