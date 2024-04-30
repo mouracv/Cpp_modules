@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:02:15 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/25 15:11:30 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/04/29 16:47:12 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,15 @@
 #include <string>
 #include <cstring>
 
-void replace(std::string& input, const std::string& tofind, const std::string&  toreplace)
+void replace(std::string& input, const std::string& tofind, const std::string& toreplace)
 {
-    int i = 0;
-    while (input.find(tofind, i) != std::string::npos)
+    size_t i = 0;
+    while ((i = input.find(tofind, i)) != std::string::npos)
     {
-        i = input.find(tofind, i);
         input.erase(i, (tofind.size()));
         input.insert(i, toreplace.c_str());
         i += toreplace.size();
-    }
-    
+    }  
 }
 
 int main(int argc, char* argv[])

@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 16:34:17 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/29 10:53:16 by aleperei         ###   ########.fr       */
+/*   Created: 2024/04/29 11:52:30 by aleperei          #+#    #+#             */
+/*   Updated: 2024/04/30 19:17:29 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-Zombie* zombieHorde(int N, std::string name)
+int main(void)
 {
-    if ( N <= 0 || N > 100000)
-    {
-        std::cerr << GREEN << "Invalid number for the horde!" << RESET << std::endl;
-        return (NULL);    
-    }
-    
-    Zombie *horde = new Zombie[N];
+    Fixed alex("ALEX");
+    Fixed miguel(alex);
 
-    for (int i = 0; i < N; i++)
-    {
-        horde[i].setname(name);
-    }
-    
-    return (horde);
+    std::cout << RED << "a localizacao em " ;
+
 }
