@@ -13,19 +13,24 @@
 
 #include <iostream>
 #include <string>
+
+// /temporario
 #include <cstdlib>
 #include <cstring>
 
 class Fixed
 {
-    public:
-        Fixed(void);
-        Fixed(std::string name);
-        Fixed(const Fixed& copy);
-        Fixed& operator=(const Fixed& other);
-        ~Fixed(void);
+    private:
+        int fixed_point_number;
+        int const store_point_bits;
 
-        char* power;
+    public:
+        // Fixed(void);
+        // Fixed(std::string name);
+        // Fixed(const Fixed& copy);
+        // Fixed& operator=(const Fixed& other);
+        // ~Fixed(void); sofia95s 932 402 080
+
         // int getRawBits(void) const;
         // void setRawBits( int const raw );
 };
