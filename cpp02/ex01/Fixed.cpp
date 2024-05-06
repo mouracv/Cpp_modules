@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 11:54:36 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/06 15:48:44 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/06 16:29:41 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 Fixed::Fixed(void) : _fixed_point_number(0)
 {
     std::cout << GREEN << "Default constructer called" << RESET << std::endl;
+}
+
+Fixed::Fixed(const int raw)
+{
+    
+}
+
+Fixed::Fixed(const float raw)
+{
+    
 }
 
 Fixed::~Fixed(void)
@@ -37,7 +47,6 @@ Fixed& Fixed::operator=(const Fixed& other)
     return (*this);
 }
 
-
 int Fixed::getRawBits(void) const
 {
     std::cout << CYAN << "getRawBits member function called" << RESET << std::endl;
@@ -49,7 +58,13 @@ void Fixed::setRawBits(int const raw){
 }
 
 
+float   Fixed::toFloat(void) const
+{
+    
+}
 
-
-
+int     Fixed::toInt(void) const
+{
+    
+}
 

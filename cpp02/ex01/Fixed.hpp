@@ -14,6 +14,9 @@
 #include <iostream>
 #include <string>
 
+
+
+
 class Fixed
 {
     private:
@@ -22,13 +25,20 @@ class Fixed
 
     public:
         Fixed(void);
+        Fixed(const int raw);
+        Fixed(const float raw);
         Fixed(const Fixed& copy);
         Fixed& operator=(const Fixed& other);
         ~Fixed(void);
 
         int getRawBits(void) const;
         void setRawBits(int const raw);
+        float toFloat(void) const;
+        int toInt(void) const;
 };
 
+// And add the following function to the Fixed class files:
+// • An overload of the insertion («) operator that inserts a floating-point representation
+// of the fixed-point number into the output stream object passed as paramete
 
 #endif

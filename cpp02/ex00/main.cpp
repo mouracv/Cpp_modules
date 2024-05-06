@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 11:52:30 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/02 17:08:34 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/06 15:44:58 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 int main(void)
 {
-    // Fixed alex("ALEX");
-    // Fixed miguel(alex);
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
+    c = b;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
 
-    // std::cout << RED << "a localizacao em " ;
-
+    return (0);
 }
