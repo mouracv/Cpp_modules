@@ -6,11 +6,11 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/19 15:59:57 by aleperei          #+#    #+#              #
-#    Updated: 2024/05/07 16:24:54 by aleperei         ###   ########.fr        #
+#    Updated: 2024/05/07 17:42:07 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Floating
+NAME = Operators
 
 CXX = c++
 

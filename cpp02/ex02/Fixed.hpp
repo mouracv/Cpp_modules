@@ -22,22 +22,35 @@ class Fixed
         static const int _store_point_bits = 8;
 
     public:
+        //Constructors and Destructors
         Fixed(void);
         Fixed(const int raw);
         Fixed(const float raw);
         Fixed(const Fixed& copy);
-        Fixed& operator=(const Fixed& other);
         ~Fixed(void);
 
+        //METHODS
         int getRawBits(void) const;
         void setRawBits(int const raw);
         float toFloat(void) const;
         int toInt(void) const;
+
+        //Operators
+        Fixed& operator=(const Fixed& other);
+
+        Fixed& operator+(const Fixed& other);
+        Fixed& operator-(const Fixed& other);
+        Fixed& operator*(const Fixed& other);
+        Fixed& operator/(const Fixed& other);
+
+        bool operator>(const Fixed& other);
+        bool operator<(const Fixed& other);
+        bool operator>=(const Fixed& other);
+        bool operator<=(const Fixed& other);
+        bool operator==(const Fixed& other);
+        bool operator!=(const Fixed& other);
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& other);
-// And add the following function to the Fixed class files:
-// • An overload of the insertion («) operator that inserts a floating-point representation
-// of the fixed-point number into the output stream object passed as paramete
 
 #endif
