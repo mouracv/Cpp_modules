@@ -35,20 +35,32 @@ class Fixed
         float toFloat(void) const;
         int toInt(void) const;
 
-        //Operators
+        //Copy operator
         Fixed& operator=(const Fixed& other);
+        //Increment/Decrement
+        Fixed   operator++(int);
+        Fixed   operator--(int);
+        Fixed&  operator++(void);
+        Fixed&  operator--(void);
+        //Arithmetic operators
+        Fixed   operator+(const Fixed& other) const;
+        Fixed   operator-(const Fixed& other) const;
+        Fixed   operator*(const Fixed& other) const;
+        Fixed   operator/(const Fixed& other) const;
+        //Comparison operators
+        bool operator>(const Fixed& other) const;
+        bool operator<(const Fixed& other) const;
+        bool operator>=(const Fixed& other) const;
+        bool operator<=(const Fixed& other) const;
+        bool operator==(const Fixed& other) const;
+        bool operator!=(const Fixed& other) const;
 
-        Fixed& operator+(const Fixed& other);
-        Fixed& operator-(const Fixed& other);
-        Fixed& operator*(const Fixed& other);
-        Fixed& operator/(const Fixed& other);
+        //extra
+        static Fixed& max(Fixed& n1, Fixed& n2);
+        static Fixed& min(Fixed& v1, Fixed& v2);
+        static const Fixed& max(const Fixed& n1, const Fixed& n2);
+        static const Fixed& min(const Fixed& v1, const Fixed& v2);
 
-        bool operator>(const Fixed& other);
-        bool operator<(const Fixed& other);
-        bool operator>=(const Fixed& other);
-        bool operator<=(const Fixed& other);
-        bool operator==(const Fixed& other);
-        bool operator!=(const Fixed& other);
 };
 
 std::ostream& operator<<(std::ostream& out, const Fixed& other);
