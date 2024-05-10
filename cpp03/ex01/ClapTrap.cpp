@@ -15,7 +15,7 @@ ClapTrap::ClapTrap(std::string nick)
 }
 
 ClapTrap::~ClapTrap(void){
-    std::cout << RED << "ScavTrap " << _name << " destructor called" << RESET << std::endl;
+    std::cout << RED << "ClapTrap " << _name << " destructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)

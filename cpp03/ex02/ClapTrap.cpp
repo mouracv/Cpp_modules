@@ -15,7 +15,7 @@ ClapTrap::ClapTrap(std::string nick)
 }
 
 ClapTrap::~ClapTrap(void){
-    std::cout << RED << "ScavTrap " << _name << " destructor called" << RESET << std::endl;
+    std::cout << RED << "ClapTrap " << _name << " destructor called" << RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -95,7 +95,7 @@ void ClapTrap::beRepaired(unsigned int amout)
 void ClapTrap::print_status(void)
 {
     std::cout << RED << "STATUS" << RESET << std::endl;
-    std::cout << RED << "******************" << RESET << std::endl;
+    std::cout << RED << "******************" << std::endl;
     std::cout << GREEN << "hitPoints: " << this->_hitPoints << std::endl;
     std::cout << "energyPoints: " << this->_energyPoints << std::endl;
     std::cout << "attackdamage: " << this->_attackDamage << std::endl;

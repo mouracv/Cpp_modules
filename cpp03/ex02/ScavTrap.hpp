@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 17:39:47 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/10 16:49:41 by aleperei         ###   ########.fr       */
+/*   Created: 2024/05/10 12:31:57 by aleperei          #+#    #+#             */
+/*   Updated: 2024/05/10 14:14:16 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-int main()
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
+    public:
+        ScavTrap(void);  
+        ScavTrap(std::string nick);  
+        ~ScavTrap(void); 
+        ScavTrap(const ScavTrap& copy);
+        ScavTrap& operator=(const ScavTrap& other);
+        
+        void guardGate();
+        void attack(const std::string& target);  
+};
 
-	ClapTrap clap1("kaine");
-	std::cout << std::endl;
 
-	ScavTrap scav1("jonh wick");
-	std::cout << std::endl;
-
-	clap1.attack("john wick");
-	scav1.takeDamage(20);
-	scav1.print_status();	
-
-	std::cout << std::endl;
-	scav1.attack("kaine");
-	clap1.takeDamage(10000);
-	clap1.print_status();
-	std::cout << std::endl;
-	clap1.beRepaired(100);
-	return 0;
-}
+#endif

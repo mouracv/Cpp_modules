@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 17:39:47 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/08 17:39:48 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:49:03 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main()
 	ClapTrap ct("C. Guy");
 	ct.attack("them");
 	ct.takeDamage(5);
+	ct.print_status();
 	ct.beRepaired(5);
 	return 0;
 }
