@@ -27,7 +27,7 @@ FragTrap::FragTrap(std::string nick) : ClapTrap(nick)
     std::cout << GREEN << "ScavTrap " << _name << " constructor called!" << RESET << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& copy)
+FragTrap::FragTrap(const FragTrap& copy) : ClapTrap(copy)
 {
     std::cout << YELLOW << "ScavTrap " << _name << " copy constructor called!" << RESET << std::endl;
     *this = copy;

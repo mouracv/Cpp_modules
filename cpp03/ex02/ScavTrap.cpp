@@ -31,16 +31,16 @@ ScavTrap::ScavTrap(std::string nick) : ClapTrap(nick)
 }
 
 
-ScavTrap::ScavTrap(const ScavTrap& copy)
+ScavTrap::ScavTrap(const ScavTrap& copy) : ClapTrap(copy)
 {
-    std::cout << CYAN << "ScavTrap " << _name << " copy contructor called";
+    std::cout << CYAN << "ScavTrap copy contructor called";
     std::cout << RESET << std::endl;
     *this = copy;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-    std::cout << CYAN << "ScavTrap " << _name << "Copy operator called";
+    std::cout << CYAN << "ScavTrap copy operator called";
     std::cout << RESET << std::endl;
     if(this != &other)
     {

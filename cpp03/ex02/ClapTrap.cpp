@@ -20,14 +20,14 @@ ClapTrap::~ClapTrap(void){
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-    std::cout << CYAN << "ClapTrap " << _name << " copy contructor called";
+    std::cout << CYAN << "ClapTrap copy contructor called";
     std::cout << RESET << std::endl;
     *this = other;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-    std::cout << CYAN << "Copy operator called" << std::endl;
+    std::cout << CYAN << "Claptrap copy operator called" << std::endl;
     if (this != &other)
     {
         this->_name = other._name;

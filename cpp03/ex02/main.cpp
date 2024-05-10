@@ -16,11 +16,13 @@
 int main()
 {
 	FragTrap ft("F. Guy");
+	FragTrap copy(ft);
 	ft.attack("them");
 	ft.takeDamage(5);
 	ft.print_status();
 	ft.beRepaired(5);
 	ft.highFivesGuys();
+	copy.print_status();
 	return 0;
 }
 
