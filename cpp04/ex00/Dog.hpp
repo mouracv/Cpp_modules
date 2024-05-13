@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 17:39:47 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/13 14:50:59 by aleperei         ###   ########.fr       */
+/*   Created: 2024/05/13 16:53:59 by aleperei          #+#    #+#             */
+/*   Updated: 2024/05/13 16:58:24 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-int main()
+#include "Animal.hpp"
+
+class Dog : public Animal
 {
-	ClapTrap ct("C. Guy");
-	ct.attack("them");
-	ct.takeDamage(5);
-	ct.print_status();
-	ct.beRepaired(5);
-	return 0;
-}
+    public:
+        Dog(std::string name);
+        Dog(const Dog& copy);
+        Dog& operator=(const Dog& other);
+        ~Dog(void);
+
+        void makesound(void);
+};
+
+
+#endif
