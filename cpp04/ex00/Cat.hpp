@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 16:53:59 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 14:59:19 by aleperei         ###   ########.fr       */
+/*   Created: 2024/05/14 14:44:34 by aleperei          #+#    #+#             */
+/*   Updated: 2024/05/14 14:57:33 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include "Animal.hpp"
 
-class Dog : public Animal
+class Cat : public Animal
 {
     public:
-        Dog(void);
-        Dog(const Dog& copy);
-        Dog& operator=(const Dog& other);
-        ~Dog(void);
-
+        Cat(void);
+        Cat(const Cat& copy);
+        Cat& operator=(const Cat& other);
+        ~Cat(void);
+        
         void makeSound(void) const;
+        
 };
 
 

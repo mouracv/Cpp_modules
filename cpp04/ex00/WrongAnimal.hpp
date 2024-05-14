@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:28:41 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 15:12:04 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/14 15:46:23 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP //WrongAnimal
+#define WRONGANIMAL_HPP
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"      
@@ -26,19 +26,19 @@
 #include <string>
 
 
-class Animal
+class WrongAnimal
 {
     protected:
         std::string     _type;
     
     public:
-        Animal(void);
-        Animal(std::string  name);
-        Animal(const Animal& copy);
-        Animal& operator=(const Animal& other);
-        virtual ~Animal(void);
+        WrongAnimal(void);
+        WrongAnimal(std::string  name);
+        WrongAnimal(const WrongAnimal& copy);
+        WrongAnimal& operator=(const WrongAnimal& other);
+        virtual ~WrongAnimal(void);
         
-        virtual void makeSound(void) const;
+        void makeSound(void) const;
         std::string getType(void) const;
         void setType(std::string  name);
 };

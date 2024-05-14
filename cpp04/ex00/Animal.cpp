@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:25:17 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/13 16:48:15 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:00:42 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Animal::Animal(std::string  name) : _type(name)
 }
 
 Animal::~Animal(void){
-    std::cout << GREEN << "Animal " << _type << " destructor called!" << RESET << std::endl; 
+    std::cout << RED << "Animal " << _type << " destructor called!" << RESET << std::endl; 
 }
 
 void Animal::makeSound(void) const {
