@@ -6,16 +6,16 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 17:41:01 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 15:59:24 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:34:58 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "../include/Animal.hpp"
+#include "../include/Dog.hpp"
+#include "../include/Cat.hpp"
+#include "../include/WrongAnimal.hpp"
+#include "../include/WrongCat.hpp"
 
 int main()
 {

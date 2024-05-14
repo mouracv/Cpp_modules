@@ -6,11 +6,11 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:25:17 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 16:00:42 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:32:52 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../include/Animal.hpp"
 
 Animal::Animal(void) : _type("Alien")
 {

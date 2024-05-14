@@ -6,11 +6,11 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:58:46 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 15:00:07 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:33:25 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "../include/Dog.hpp"
 
 Dog::Dog(void) : Animal("Dog")
 {

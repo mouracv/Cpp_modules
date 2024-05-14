@@ -6,11 +6,11 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:25:17 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 16:00:33 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:33:44 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "../include/WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal(void) : _type("Alien")
 {

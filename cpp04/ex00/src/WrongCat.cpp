@@ -6,11 +6,11 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 15:52:16 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 15:54:00 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:33:58 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../include/WrongCat.hpp"
 
 WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
 {

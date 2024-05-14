@@ -6,11 +6,11 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:48:44 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 14:58:51 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/14 16:33:11 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "../include/Cat.hpp"
 
 Cat::Cat(void) : Animal("Cat")
 {
