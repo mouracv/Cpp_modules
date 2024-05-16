@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 17:07:27 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/14 17:20:35 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:49:38 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Brain
         ~Brain(void);
 
         void setIdeas(std::string value);
-        void showIdeas(void);
+        void printIdeas(void) const;
 };
 
 

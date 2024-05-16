@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:44:34 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/15 15:07:10 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:05:35 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Cat : public Animal
         
         void makeSound(void) const;
         void setMind(std::string value);
+        void getMind(void) const;
         
 };
 

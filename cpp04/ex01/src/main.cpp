@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 17:41:01 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/15 16:54:20 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:22:59 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int main()
 {
     const Animal *animal[6];
 
-    for(int i = 0; i < 6; i++){
+    for(int i = 0; i < 6; i++)
+    {
         if(i < 3)
         {
             std:: cout << YELLOW << "-----------------\nCREATE OBJECT DOG\n -----------------" << RESET << std::endl;
@@ -43,26 +44,29 @@ int main()
     std:: cout << YELLOW << "-----------------\nTESTS OF COPIES!!!!\n -----------------" << RESET << std::endl;
     std:: cout << YELLOW << "--------------------------------------------------------------" << RESET << std::endl;
     
-    // std:: cout << YELLOW << "-----------------\nCREATE OBJECT MINGAU\n -----------------" << RESET << std::endl;
-    // Cat mingau;
+    std:: cout << YELLOW << "-----------------\nCREATE OBJECT JOHN\n -----------------" << RESET << std::endl;
+    Cat john;
     
-    // std:: cout << YELLOW << "-----------------\nCREATE COPY MINGAU (MILK)\n -----------------" << RESET << std::endl;
-    // Cat milk(mingau);
+    std:: cout << YELLOW << "-----------------\nCREATE COPY JOHN (KAINE)\n -----------------" << RESET << std::endl;
+    Cat kaine(john);
     
-    // std::string *ideas;
     
-    // std:: cout << YELLOW << "-----------------\nIDEAS OF MINGAU!!!\n -----------------" << RESET << std::endl;
-    // mingau.getBrain()->setIdeas("I want fish today!!");
-    // ideas = mingau.getBrain()->getIdeas();
-    // for(int i=0; i<2; i++)
-    //     std::cout << "ideas of mingau: " << ideas[i] << std::endl;
+    std:: cout << YELLOW << "-----------------\nIDEAS OF JOHN!!!\n -----------------" << RESET << std::endl;
+    john.setMind("I want fish today!!");
+    john.getMind();
+
     
-    // std:: cout << YELLOW << "-----------------\nIDEAS OF MILK!!!\n -----------------" << RESET << std::endl;
-    // ideas = milk.getBrain()->getIdeas();
-    // for(int i=0; i<2; i++)
-    //     std::cout << "ideas: " << ideas[i] << std::endl;
+    std:: cout << YELLOW << "-----------------\nIDEAS OF KAINE!!!\n -----------------" << RESET << std::endl;
+    kaine.getMind();
         
-    // std:: cout << YELLOW << "-----------------\nDESTRUCTORS\n -----------------" << RESET << std::endl;
+    std:: cout << YELLOW << "-----------------\nDESTRUCTORS\n -----------------" << RESET << std::endl;
     	
     return (0);
 }
+
+// std:: cout << YELLOW << "-----------------\nCREATE KAINE\n -----------------" << RESET << std::endl;
+// Cat kaine;
+
+// std:: cout << YELLOW << "-----------------\nCOPY JONH TO KAINE\n -----------------" << RESET << std::endl;
+// kaine = john;
+// std:: cout << YELLOW << "-----------------\nIDEAS OF JOHN!!!\n -----------------" << RESET << std::endl;

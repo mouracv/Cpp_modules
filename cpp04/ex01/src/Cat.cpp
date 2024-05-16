@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:48:44 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/15 16:55:34 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:53:12 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,8 @@ void Cat::makeSound(void) const{
 
 void  Cat::setMind(std::string value){
     this->_mind->setIdeas(value);
+}
+
+void Cat::getMind(void) const{
+    this->_mind->printIdeas();
 }

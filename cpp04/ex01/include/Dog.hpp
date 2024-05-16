@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:53:59 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/15 15:08:58 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:07:42 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Dog : public Animal
 
         void makeSound(void) const;
         void setMind(std::string value);
+        void getMind(void) const;
 };
 
 
