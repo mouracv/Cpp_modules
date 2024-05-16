@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:58:46 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/16 15:53:19 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:31:36 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ void Dog::setMind(std::string value){
 
 void Dog::getMind(void) const{
     this->_mind->printIdeas();
+    std::cout << BLUE << _type << ": Brain memory= " << (_mind) << std::endl;
 }

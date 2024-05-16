@@ -1,57 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 14:48:44 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/16 16:29:54 by aleperei         ###   ########.fr       */
+/*   Created: 2024/05/14 15:52:16 by aleperei          #+#    #+#             */
+/*   Updated: 2024/05/14 16:33:58 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Cat.hpp"
+#include "../include/WrongCat.hpp"
 
-Cat::Cat(void) : Animal("Cat")
+WrongCat::WrongCat(void) : WrongAnimal("WrongCat")
 {
     std::cout << GREEN << getType() << " constructor called!" << RESET << std::endl;
-    _mind = new Brain();
 }
 
-Cat::Cat(const Cat& copy) : Animal(copy)
+WrongCat::WrongCat(const WrongCat& copy) : WrongAnimal(copy)
 {
     std::cout << YELLOW << getType() << " copy constructor called!" << RESET << std::endl;
-    _mind = new Brain(*copy._mind);
+    *this = copy;
 }
 
-Cat& Cat::operator=(const Cat& other)
+WrongCat& WrongCat::operator=(const WrongCat& other)
 {
     std::cout << YELLOW << getType() << " operator called!" << RESET << std::endl;
     if (this != &other)
-    {
         this->setType(other.getType());
-        delete this->_mind;
-        this->_mind = new Brain(*other._mind);
-    }
     return (*this);
 }
 
-Cat::~Cat(void)
+WrongCat::~WrongCat(void)
 {
     std::cout << RED << getType() << " destructor called!" << RESET << std::endl;
-    delete _mind;
 }
 
-//METHOD OVERWRITE
-void Cat::makeSound(void) const{
+void WrongCat::makeSound(void) const{
     std::cout << MAGENTA << "Meow Meow!" << RESET << std::endl;
-}
-
-void  Cat::setMind(std::string value){
-    this->_mind->setIdeas(value);
-}
-
-void Cat::getMind(void) const{
-    this->_mind->printIdeas();
-    std::cout << BLUE << _type << ": Brain memory= " << (_mind) << std::endl;
 }
