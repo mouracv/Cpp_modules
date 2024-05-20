@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:22:04 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/16 17:43:08 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/20 17:16:08 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #define MAGENTA "\033[35m"      
 #define CYAN    "\033[36m" 
 
+#include "ICharacter.hpp"
 #include <iostream>
 #include <string>
 
@@ -32,8 +33,8 @@ class AMateria
         AMateria(std::string const & type);
         std::string const & getType(void) const; //Returns the materia type
         virtual AMateria* clone() const = 0;
-    // [...]
-    // virtual void use(ICharacter& target);
+        // [...]
+        virtual void use(ICharacter& target) const;
 };
 
 

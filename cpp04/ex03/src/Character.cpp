@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:39:44 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/20 17:11:32 by aleperei         ###   ########.fr       */
+/*   Created: 2024/05/20 17:26:10 by aleperei          #+#    #+#             */
+/*   Updated: 2024/05/20 17:34:45 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
 
-#include "AMateria.hpp"
+#include "../include/Character.hpp"
 
-class Ice : public AMateria
+Character::Character(std::string name) : _name(name)
 {
-    public:
-        Ice(void);
-        Ice(const Ice& copy);
-        Ice& operator=(const Ice& other);
-        ~Ice(void);
 
-        //METHODS
-        AMateria* clone() const;
-        virtual void use(ICharacter& target) const;
-};
+}
 
 
-#endif
+
+/*-----------------------------------Overwrite functions---------------------------------*/
+
+std::string const& Character::getName() const{
+    return(this->_name);
+}
+
+void Character::equip(AMateria* m)
+{
+    
+}
+
+void Character::unequip(int idx)
+{
+    
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+    
+}

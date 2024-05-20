@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:39:44 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/20 17:11:32 by aleperei         ###   ########.fr       */
+/*   Created: 2024/05/20 15:56:27 by aleperei          #+#    #+#             */
+/*   Updated: 2024/05/20 17:12:29 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#include "../include/Cure.hpp"
 
-#include "AMateria.hpp"
-
-class Ice : public AMateria
+Cure::Cure(void) : AMateria("cure")
 {
-    public:
-        Ice(void);
-        Ice(const Ice& copy);
-        Ice& operator=(const Ice& other);
-        ~Ice(void);
+    std::cout << GREEN <<"Cure " <<_type << " :constructor called!!" << std::endl;
+}
 
-        //METHODS
-        AMateria* clone() const;
-        virtual void use(ICharacter& target) const;
-};
+Cure::Cure(const Cure& copy) : AMateria("cure")
+{
 
+}
 
-#endif
+Cure& Cure::operator=(const Cure& copy)
+{
+
+}
+
+AMateria* Cure::clone() const
+{
+    
+}
+
+void Cure::use(ICharacter& target) const
+{
+    std::cout << "* heals <name> wounds *" << std::endl;
+}
