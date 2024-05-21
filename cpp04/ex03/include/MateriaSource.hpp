@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/20 15:27:37 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/21 14:23:54 by aleperei         ###   ########.fr       */
+/*   Created: 2024/05/21 11:55:34 by aleperei          #+#    #+#             */
+/*   Updated: 2024/05/21 12:00:12 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+
+
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
 #include "AllClass.hpp"
 
-
-class Cure : public AMateria
+class MateriaSource : public IMateriaSource
 {
     public:
-        Cure(void);
-        Cure(const Cure& copy);
-        Cure& operator=(const Cure& other);
-        ~Cure(void);
-
-        //Overwrite
-        AMateria* clone() const;
-        void use(ICharacter& target) const;
+        MateriaSource(void);
+        MateriaSource(const MateriaSource& copy);
+        MateriaSource& operator=(const MateriaSource& other);
+        ~MateriaSource(void);
+        
+        //Overwrite Methods
+        void learnMateria(AMateria*);
+        AMateria* createMateria(std::string const & type);
 };
 
 
-
-
-
 #endif
+

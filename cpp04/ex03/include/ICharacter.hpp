@@ -6,14 +6,14 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 16:01:20 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/20 17:30:36 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:53:41 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
-#include "AMateria.hpp"
+#include "AllClass.hpp"
 
 class ICharacter
 {

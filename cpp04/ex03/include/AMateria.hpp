@@ -6,34 +6,31 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:22:04 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/20 17:16:08 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:21:57 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
-#define RESET   "\033[0m"
-#define RED     "\033[31m"      
-#define GREEN   "\033[32m"      
-#define YELLOW  "\033[33m"      
-#define BLUE    "\033[34m"      
-#define MAGENTA "\033[35m"      
-#define CYAN    "\033[36m" 
 
-#include "ICharacter.hpp"
-#include <iostream>
-#include <string>
+#include "AllClass.hpp"
+
 
 class AMateria
 {
     protected:
         std::string     _type;
+    
     public:
+        AMateria(void);
         AMateria(std::string const & type);
+        AMateria(const AMateria& copy);
+        AMateria& operator=(const AMateria& other);
+
+        //Methods
         std::string const & getType(void) const; //Returns the materia type
         virtual AMateria* clone() const = 0;
-        // [...]
         virtual void use(ICharacter& target) const;
 };
 

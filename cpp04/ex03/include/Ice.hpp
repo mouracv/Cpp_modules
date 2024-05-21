@@ -6,14 +6,14 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:39:44 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/20 17:11:32 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:23:50 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 #define ICE_HPP
 
-#include "AMateria.hpp"
+#include "AllClass.hpp"
 
 class Ice : public AMateria
 {
@@ -25,7 +25,7 @@ class Ice : public AMateria
 
         //METHODS
         AMateria* clone() const;
-        virtual void use(ICharacter& target) const;
+        void use(ICharacter& target) const;
 };
 
 
