@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:26:10 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/21 17:16:24 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/22 14:49:19 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,22 @@ Character::Character() : _name("unknown")
 Character::Character(std::string name) : _name(name)
 {
     std::cout << GREEN << "Character " << _name << " : constructor called!" << std::endl;
+    for (size_t i = 0; i < 4; i++){
+        _inventory[i] = NULL;
+    }
 }
 
 Character::Character(const Character& copy) : _name(copy.getName())
 {
     std::cout << GREEN << "Character " << _name << " : copy constructor called!" << std::endl;
-    //[...]
+    for (size_t i = 0; i < 4; i++)
+    {
+        if (copy._inventory[i])
+            this->_inventory[i] = copy._inventory[i]->clone();
+        else
+            this->_inventory[i] = NULL;
+    }
+    
 }
 
 Character& Character::operator=(const Character& other)
@@ -38,7 +48,16 @@ Character& Character::operator=(const Character& other)
     {
         std::cout << YELLOW << "Character " << _name << " : copy operator called!" << std::endl;
         this->_name = other.getName();
-        //[...]
+        for (size_t i = 0; i < 4; i++)
+        {
+            if (this->_inventory[i])
+            {                
+                delete this->_inventory[i];
+                this->_inventory[i] = NULL;
+            }
+            if (other._inventory[i])
+                this->_inventory[i] = other._inventory[i]->clone();   
+        }
     }
     return (*this);
 }
@@ -46,6 +65,11 @@ Character& Character::operator=(const Character& other)
 Character::~Character(void)
 {
     std::cout << RED << "Character " << _name << " : destructor called!" << std::endl;
+    for (size_t i = 0; i < 4; i++)
+    {
+        if (this->_inventory[i])
+            delete this->_inventory[i];
+    }
 }
 
 
@@ -80,5 +104,10 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    
+    if (idx < 0 || idx > 3 ||  !_inventory[idx])
+    {
+        std::cout << RED << this->getName() << " invalid index" << RESET << std::endl;
+        return;
+    }
+    this->_inventory[idx]->use(target);
 }

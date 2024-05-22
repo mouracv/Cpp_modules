@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:55:34 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/21 12:00:12 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:11:59 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 class MateriaSource : public IMateriaSource
 {
+    private:
+        AMateria*   _bag[4];
+    
     public:
         MateriaSource(void);
         MateriaSource(const MateriaSource& copy);
@@ -26,7 +29,7 @@ class MateriaSource : public IMateriaSource
         ~MateriaSource(void);
         
         //Overwrite Methods
-        void learnMateria(AMateria*);
+        void learnMateria(AMateria* m);
         AMateria* createMateria(std::string const & type);
 };
 
