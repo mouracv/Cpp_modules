@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:56:27 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/21 15:51:38 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:45:24 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 Cure::Cure(void) : AMateria("cure")
 {
-    std::cout << GREEN <<"Cure " <<_type << " : constructor called!!" << std::endl;
+    std::cout << GREEN <<"Cure " <<_type << " : constructor called!!" << RESET << std::endl;
 }
 
 Cure::Cure(const Cure& copy) : AMateria(copy)
 {
-    std::cout << GREEN <<"Cure " << _type << " : copy constructor called!!" << std::endl;
+    std::cout << GREEN <<"Cure " << _type << " : copy constructor called!!" << RESET << std::endl;
 }
 
 Cure& Cure::operator=(const Cure& other)
 {
     if (this != &other)
     {
-        std::cout << YELLOW <<"Cure " << _type << " : copy operator called!!" << std::endl;
+        std::cout << YELLOW <<"Cure " << _type << " : copy operator called!!" << RESET << std::endl;
         AMateria::operator=(other);
     }
     return (*this);
@@ -34,7 +34,7 @@ Cure& Cure::operator=(const Cure& other)
 
 Cure::~Cure(void)
 {
-    std::cout << RED <<"Cure " <<_type << " : destructor called!!" << std::endl;    
+    std::cout << RED <<"Cure " <<_type << " : destructor called!!" << RESET << std::endl;    
 }
 
 AMateria* Cure::clone() const
@@ -46,5 +46,5 @@ AMateria* Cure::clone() const
 }
 
 void Cure::use(ICharacter& target) const{
-    std::cout << "* heals " << target.getName() << " wounds *" << std::endl;
+    std::cout << "* heals " << target.getName() << " wounds *" << RESET << std::endl;
 }

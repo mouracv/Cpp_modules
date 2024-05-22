@@ -6,11 +6,11 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/05/16 16:32:59 by aleperei         ###   ########.fr        #
+#    Updated: 2024/05/22 17:45:41 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Abs
+NAME = Wisteria
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 

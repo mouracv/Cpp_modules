@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:26:10 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/22 14:49:19 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:45:24 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Character::Character() : _name("unknown")
 {
-    std::cout << GREEN << "Character " << _name << " : constructor called!" << std::endl;
+    std::cout << GREEN << "Character " << _name << " : constructor called!" << RESET << std::endl;
     for (size_t i = 0; i < 4; i++){
         _inventory[i] = NULL;
     }
@@ -23,7 +23,7 @@ Character::Character() : _name("unknown")
 
 Character::Character(std::string name) : _name(name)
 {
-    std::cout << GREEN << "Character " << _name << " : constructor called!" << std::endl;
+    std::cout << GREEN << "Character " << _name << " : constructor called!" << RESET << std::endl;
     for (size_t i = 0; i < 4; i++){
         _inventory[i] = NULL;
     }
@@ -31,7 +31,7 @@ Character::Character(std::string name) : _name(name)
 
 Character::Character(const Character& copy) : _name(copy.getName())
 {
-    std::cout << GREEN << "Character " << _name << " : copy constructor called!" << std::endl;
+    std::cout << GREEN << "Character " << _name << " : copy constructor called!" << RESET << std::endl;
     for (size_t i = 0; i < 4; i++)
     {
         if (copy._inventory[i])
@@ -46,7 +46,7 @@ Character& Character::operator=(const Character& other)
 {
     if (this != &other)
     {
-        std::cout << YELLOW << "Character " << _name << " : copy operator called!" << std::endl;
+        std::cout << YELLOW << "Character " << _name << " : copy operator called!" << RESET << std::endl;
         this->_name = other.getName();
         for (size_t i = 0; i < 4; i++)
         {
@@ -64,7 +64,7 @@ Character& Character::operator=(const Character& other)
 
 Character::~Character(void)
 {
-    std::cout << RED << "Character " << _name << " : destructor called!" << std::endl;
+    std::cout << RED << "Character " << _name << " : destructor called!" << RESET << std::endl;
     for (size_t i = 0; i < 4; i++)
     {
         if (this->_inventory[i])

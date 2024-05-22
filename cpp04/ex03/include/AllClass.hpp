@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:47:49 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/21 15:41:17 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:38:23 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,16 @@
 #define CYAN    "\033[36m"
 
 
-#include "AMateria.hpp"
-#include "Character.hpp"
-#include "ICharacter.hpp"
-#include "Ice.hpp"
-#include "Cure.hpp"
-#include "IMateriaSource.hpp"
-#include "MateriaSource.hpp"
+// #include "AMateria.hpp"
+// #include "Character.hpp"
+// #include "ICharacter.hpp"
+// #include "Ice.hpp"
+// #include "Cure.hpp"
+// #include "IMateriaSource.hpp"
+// #include "MateriaSource.hpp"
 
 
-#include <iostream>
-#include <string>
+// #include <iostream>
+// #include <string>
 
 #endif

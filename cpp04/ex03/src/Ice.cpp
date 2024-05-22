@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:42:13 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/21 15:32:19 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:45:24 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 Ice::Ice(void) : AMateria("ice")
 {
-    std::cout << GREEN <<"Ice " <<_type << " : constructor called!!" << std::endl;
+    std::cout << GREEN <<"Ice " <<_type << " : constructor called!!" << RESET << std::endl;
 }
 
 Ice::Ice(const Ice& copy) : AMateria(copy)
 {
-    std::cout << GREEN <<"Ice " << _type << " : copy constructor called!!" << std::endl;
+    std::cout << GREEN <<"Ice " << _type << " : copy constructor called!!" << RESET << std::endl;
 }
 
 Ice& Ice::operator=(const Ice& other)
 {
     if (this != &other)
     {
-        std::cout << YELLOW <<"Ice " << _type << " : copy operator called!!" << std::endl;
+        std::cout << YELLOW <<"Ice " << _type << " : copy operator called!!" << RESET << std::endl;
         AMateria::operator=(other);
     }
     return(*this);
@@ -34,7 +34,7 @@ Ice& Ice::operator=(const Ice& other)
 
 Ice::~Ice(void)
 {
-    std::cout << RED <<"Ice " <<_type << " : destructor called!!" << std::endl;
+    std::cout << RED <<"Ice " <<_type << " : destructor called!!" << RESET << std::endl;
 }
 
 
@@ -48,5 +48,5 @@ AMateria* Ice::clone() const
 }
 
 void Ice::use(ICharacter& target) const{
-    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << RESET << std::endl;
 }

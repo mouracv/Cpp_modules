@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:55:34 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/22 16:11:59 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:58:56 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 
-#include "AllClass.hpp"
+#include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
 {
@@ -32,7 +32,6 @@ class MateriaSource : public IMateriaSource
         void learnMateria(AMateria* m);
         AMateria* createMateria(std::string const & type);
 };
-
 
 #endif
 

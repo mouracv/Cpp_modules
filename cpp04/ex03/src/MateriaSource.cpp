@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:01:31 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/22 16:39:26 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:45:24 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 MateriaSource::MateriaSource(void)
 {
-    std::cout << GREEN << "MateriSource: constructor called!" << std::endl;
+    std::cout << GREEN << "MateriSource: constructor called!" << RESET << std::endl;
     for (size_t i = 0; i < 4; i++){
         _bag[i] = NULL;
     }
@@ -23,7 +23,7 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::MateriaSource(const MateriaSource& copy)
 {
-    std::cout << GREEN << "MateriSource: copy constructor called!" << std::endl;
+    std::cout << GREEN << "MateriSource: copy constructor called!" << RESET << std::endl;
     for (size_t i = 0; i < 4; i++)
     {
         if (copy._bag[i])
@@ -37,7 +37,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
     if (this != &other)
     {
-        std::cout << YELLOW << "MateriSource: copy operator called!" << std::endl;
+        std::cout << YELLOW << "MateriSource: copy operator called!" << RESET << std::endl;
         for (size_t i = 0; i < 4; i++)
         {
             if (this->_bag[i])
@@ -48,11 +48,12 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
                 this->_bag[i] = NULL;
         }
     }
+    return(*this);
 }
 
 MateriaSource::~MateriaSource(void)
 {
-    std::cout << YELLOW << "MateriSource: destructor called!" << std::endl;
+    std::cout << YELLOW << "MateriSource: destructor called!" << RESET << std::endl;
     for (size_t i = 0; i < 4; i++)
     {
         if (this->_bag[i])
