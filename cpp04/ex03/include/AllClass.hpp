@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:47:49 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/22 17:38:23 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:17:13 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 #define BLUE    "\033[34m"      
 #define MAGENTA "\033[35m"      
 #define CYAN    "\033[36m"
-
+#define TRASH_SIZE 100
+#define INVENTORY_SIZE 4
 
 // #include "AMateria.hpp"
 // #include "Character.hpp"

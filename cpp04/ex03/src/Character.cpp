@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:26:10 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/22 17:45:24 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:47:10 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,26 @@
 
 Character::Character() : _name("unknown")
 {
-    std::cout << GREEN << "Character " << _name << " : constructor called!" << RESET << std::endl;
-    for (size_t i = 0; i < 4; i++){
+    std::cout << GREEN << "Character " << _name << ": constructor called!" << RESET << std::endl;
+    for (size_t i = 0; i < INVENTORY_SIZE; i++){
         _inventory[i] = NULL;
     }
+    _trash[0] = NULL;
 }
 
 Character::Character(std::string name) : _name(name)
 {
-    std::cout << GREEN << "Character " << _name << " : constructor called!" << RESET << std::endl;
-    for (size_t i = 0; i < 4; i++){
+    std::cout << GREEN << "Character " << _name << ": constructor called!" << RESET << std::endl;
+    for (size_t i = 0; i < INVENTORY_SIZE; i++){
         _inventory[i] = NULL;
     }
+    _trash[0] = NULL;
 }
 
 Character::Character(const Character& copy) : _name(copy.getName())
 {
-    std::cout << GREEN << "Character " << _name << " : copy constructor called!" << RESET << std::endl;
-    for (size_t i = 0; i < 4; i++)
+    std::cout << GREEN << "Character " << _name << ": copy constructor called!" << RESET << std::endl;
+    for (size_t i = 0; i < INVENTORY_SIZE; i++)
     {
         if (copy._inventory[i])
             this->_inventory[i] = copy._inventory[i]->clone();
@@ -46,9 +48,9 @@ Character& Character::operator=(const Character& other)
 {
     if (this != &other)
     {
-        std::cout << YELLOW << "Character " << _name << " : copy operator called!" << RESET << std::endl;
+        std::cout << YELLOW << "Character " << _name << ": copy operator called!" << RESET << std::endl;
         this->_name = other.getName();
-        for (size_t i = 0; i < 4; i++)
+        for (size_t i = 0; i < INVENTORY_SIZE; i++)
         {
             if (this->_inventory[i])
             {                
@@ -64,12 +66,16 @@ Character& Character::operator=(const Character& other)
 
 Character::~Character(void)
 {
-    std::cout << RED << "Character " << _name << " : destructor called!" << RESET << std::endl;
-    for (size_t i = 0; i < 4; i++)
+    std::cout << RED << "Character " << _name << ": destructor called!" << RESET << std::endl;
+    for (size_t i = 0; i < INVENTORY_SIZE; i++)
     {
         if (this->_inventory[i])
             delete this->_inventory[i];
     }
+    for (size_t i = 0; ( _trash[i] != NULL && i < TRASH_SIZE); i++){
+        delete this->_trash[i];
+    }
+    
 }
 
 
@@ -81,14 +87,25 @@ std::string const& Character::getName() const{
 
 void Character::equip(AMateria* m)
 {
-    for (size_t i = 0; i < 4; i++)
+    static int pos;
+    
+    if (!m)
+    {
+        std::cout << RED << this->getName() << " invalid materia!" << RESET << std::endl;
+        return;
+    }
+    for (size_t i = 0; i < INVENTORY_SIZE; i++)
     {
         if(!_inventory[i])
         {
+            _trash[pos] = _inventory[i];
+            pos++;
+            _trash[pos] = NULL;
             _inventory[i] = m;
             return;
         }
     }
+    delete m;
     std::cout << RED << this->getName() << " inventory is full !!" << RESET << std::endl;
 }
 

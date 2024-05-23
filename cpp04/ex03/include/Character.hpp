@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:23:10 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/22 16:56:25 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/23 14:46:52 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class Character : public ICharacter
     private:
         std::string     _name;
         AMateria*   _inventory[4];
+        AMateria*   _trash[TRASH_SIZE];
+        
     
     public:
         Character(void);
