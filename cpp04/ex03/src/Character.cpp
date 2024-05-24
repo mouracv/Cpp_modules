@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:26:10 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/23 14:47:10 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:55:03 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,6 @@ std::string const& Character::getName() const{
 
 void Character::equip(AMateria* m)
 {
-    static int pos;
-    
     if (!m)
     {
         std::cout << RED << this->getName() << " invalid materia!" << RESET << std::endl;
@@ -98,9 +96,6 @@ void Character::equip(AMateria* m)
     {
         if(!_inventory[i])
         {
-            _trash[pos] = _inventory[i];
-            pos++;
-            _trash[pos] = NULL;
             _inventory[i] = m;
             return;
         }
@@ -111,8 +106,13 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
+    static int pos;
+
     if (idx >= 0 && idx <= 3)
     {
+        _trash[pos] = _inventory[idx];
+        pos++;
+        _trash[pos] = NULL;
         _inventory[idx] = NULL;
         return;
     }

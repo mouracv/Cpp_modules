@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 17:28:04 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/23 15:37:56 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/24 16:55:27 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int main(void)
     karen->equip(new Ice());
     karen->equip(new Ice());
     karen->equip(new Cure());
-
+    karen->unequip(3);
     std::cout << std::endl << BLUE << "The figth begins..." << RESET<< std::endl << std::endl;
 
     harry->use(0, *teodore);
