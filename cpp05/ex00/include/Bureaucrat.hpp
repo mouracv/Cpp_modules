@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 17:02:23 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/24 18:13:14 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:58:01 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 #define MAGENTA "\033[35m"      
 #define CYAN    "\033[36m"
 
-#include <stdexcept>
-#include <iostream>
-#include <string>
+// #include <stdexcept>
+# include <iostream>
+# include <exception>
+# include <string>
 
 class Bureaucrat
 {
@@ -32,18 +33,20 @@ class Bureaucrat
         int     _grade;
     
     public:
-        Bureaucrat(void);
+        //Form
         Bureaucrat(const std::string str, int value);
         Bureaucrat(const Bureaucrat& copy);
         Bureaucrat& operator=(const Bureaucrat& other);
         ~Bureaucrat(void);
+
+        //Methods
         void incrementGrade(void);
         void decrementGrade(void);
-        int getGrade(void);
-        const std::string& getName(void);
+        int getGrade(void) const;
+        const std::string& getName(void) const;
 
     //execption classes
-        class GradeTooHighException : std::exception{
+        class GradeTooHighException : public std::exception{
             private:
                 std::string _error_msg;
             public:
@@ -53,7 +56,7 @@ class Bureaucrat
                 const char *what() const throw() {return(_error_msg.c_str());}
         };
         
-        class GradeTooLowException : std::exception{
+        class GradeTooLowException : public std::exception{
             private:
                 std::string _error_msg;
             public:
@@ -65,5 +68,6 @@ class Bureaucrat
         
 };
 
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& info);
 
 #endif

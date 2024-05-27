@@ -6,11 +6,11 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/05/14 17:02:10 by aleperei         ###   ########.fr        #
+#    Updated: 2024/05/27 11:27:34 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Zoo
+NAME = Bureaucrat
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
