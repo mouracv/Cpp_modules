@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 17:41:01 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/27 14:56:32 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:11:53 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
 	}
 	try
 	{
-		Bureaucrat vip("President", 3);
+		Bureaucrat vip("President", 10);
 		Form form("VIP form", 10, 5);
 		std::cout << form;
 		vip.signForm(form);

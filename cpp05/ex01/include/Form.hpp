@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:35:03 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/27 14:48:10 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/29 12:52:15 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Bureaucrat;
 class Form
 {
     private:
-        const int   _requiredGrade;
         const std::string   _name;
         bool    _signed;
-        int     _grade;
+        const int   _signGrade;
+        const int   _executeGrade;
 
     public:
         //constructors
@@ -35,12 +35,10 @@ class Form
         ~Form(void);
 
         //Methods
-        int getRequiredGrade(void) const;
-        int getGrade(void) const;
+        int getExecuteGrade(void) const;
+        int getSignGrade(void) const;
         bool getSigned(void) const;
         const std::string& getName(void) const;
-        void incrementGrade(void);
-        void decrementGrade(void);
         void beSigned(Bureaucrat& info_b);
 
         //Excepton classes
