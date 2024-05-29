@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:35:03 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/27 17:15:08 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/29 14:54:38 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,27 @@ class Bureaucrat;
 class AForm
 {
     private:
-        const int   _requiredGrade;
         const std::string   _name;
         bool    _signed;
-        int     _grade;
+        const int   _signGrade;
+        const int   _executeGrade;
 
     public:
         //constructors
-        AForm(const std::string str, int value, int rgrade);
+        AForm(const std::string str, int signgrade, int execgrade);
         AForm(const AForm& copy);
         AForm& operator=(const AForm& other);
-        virtual ~AForm(void);
+        ~AForm(void);
 
         //Methods
-        int getRequiredGrade(void) const;
-        int getGrade(void) const;
+        int getExecuteGrade(void) const;
+        int getSignGrade(void) const;
         bool getSigned(void) const;
         const std::string& getName(void) const;
-        void incrementGrade(void);
-        void decrementGrade(void);
         void beSigned(Bureaucrat& info_b);
+        void execute(Bureaucrat const & executor) const;
+        virtual void beExecute() const = 0;
+
 
         //Excepton classes
             class GradeTooHighException : public std::exception{

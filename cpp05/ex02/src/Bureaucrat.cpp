@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:30:40 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/27 17:15:58 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:27:14 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,32 @@ const std::string& Bureaucrat::getName(void) const{
 
 void Bureaucrat::signForm(AForm& info_f)
 {
-    if (info_f.getSigned())
+    try
+    {
+        info_f.beSigned(*this);
         std::cout << MAGENTA << this->_name << " signed " << info_f.getName() << RESET << std::endl;
-    else
+    }
+    catch(const std::exception& e)
     {
         std::cout << MAGENTA << this->_name << " couldn't sign " << info_f.getName() ;
         std::cout << " because grade is low then required grade to sign!" << RESET << std::endl;
     }
 }
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << MAGENTA << this->_name << " executed  " << form.getName() << RESET << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        (void) e;
+        std::cout << MAGENTA << this->_name << " could not execute  " << form.getName() << RESET << std::endl;
+    }
+}
+
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& info)
 {

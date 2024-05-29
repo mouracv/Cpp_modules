@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:30:29 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/27 17:16:33 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:20:29 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ class Bureaucrat
         int getGrade(void) const;
         const std::string& getName(void) const;
         void signForm(AForm& info_f);
+        void executeForm(AForm const & form);
 
     //execption classes
         class GradeTooHighException : public std::exception{
