@@ -6,11 +6,11 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/05/27 12:30:54 by aleperei         ###   ########.fr        #
+#    Updated: 2024/05/30 16:19:28 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Forms
+NAME = Work
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -33,9 +33,11 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 
 clean:
 	$(RM) -r $(OBJDIR)
+	@$(RM) *_shrubbery
 
 fclean: clean
 	$(RM) $(NAME)
+	@$(RM) *_shrubbery
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:30:40 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/29 16:27:14 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:01:55 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void Bureaucrat::executeForm(AForm const & form)
     }
     catch(const std::exception& e)
     {
-        (void) e;
-        std::cout << MAGENTA << this->_name << " could not execute  " << form.getName() << RESET << std::endl;
+        std::cout << MAGENTA << this->_name << " could not execute " << form.getName() << " because: ";
+        std::cout << e.what() << RESET << std::endl;
     }
 }
 

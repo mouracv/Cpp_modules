@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 12:35:03 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/29 14:54:38 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:06:57 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class AForm
         AForm(const std::string str, int signgrade, int execgrade);
         AForm(const AForm& copy);
         AForm& operator=(const AForm& other);
-        ~AForm(void);
+        virtual ~AForm(void);
 
         //Methods
         int getExecuteGrade(void) const;

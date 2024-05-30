@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:23:53 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/29 16:16:42 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:50:32 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void ShrubberyCreationForm::beExecute() const
 {
     std::ofstream outputFile;
 
-    outputFile.open(this->getName()+"_shrubbery");
+    outputFile.open((this->getName()+"_shrubbery").c_str());
     if (!outputFile.is_open())
     {
         std::cerr << RED << "Error in open the output file!" << RESET << std::endl;
