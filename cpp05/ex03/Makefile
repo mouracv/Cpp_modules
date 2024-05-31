@@ -6,11 +6,11 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/05/30 16:19:28 by aleperei         ###   ########.fr        #
+#    Updated: 2024/05/31 14:33:33 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Work
+NAME = Slave
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
