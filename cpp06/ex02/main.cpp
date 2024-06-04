@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 17:07:27 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/04 13:43:11 by aleperei         ###   ########.fr       */
+/*   Created: 2024/04/18 13:52:17 by aleperei          #+#    #+#             */
+/*   Updated: 2024/06/04 13:00:14 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
-
-#include "Animal.hpp"
-
-class Brain
-{
-    private:
-        std::string _ideas[100];
-    public:
-        Brain(void);
-        Brain(const Brain& copy);
-        Brain& operator=(const Brain& other);
-        ~Brain(void);
-
-        void setIdeas(std::string value);
-        void printIdeas(void) const;
-};
+// #include "Zombie.hpp"
 
 
+// int main()
+// {
+//     Zombie *alex = newZombie("twiliit");
+//     alex->announce();
+//     delete alex;
+//     randomChump("SAITAMA");
+//     randomChump("GENOS");
+//     randomChump("KAMUI");
 
-
-
-
-
-
-#endif
+//     Zombie *lo = newZombie("Marvin");
+//     lo->announce();
+//     delete lo;
+//     return (0);    
+// }

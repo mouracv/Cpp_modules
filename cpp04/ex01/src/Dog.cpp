@@ -6,16 +6,17 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 16:58:46 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/16 16:31:36 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:11:25 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Dog.hpp"
 
-Dog::Dog(void) : Animal("Dog")
+Dog::Dog(void) : Animal()
 {
     std::cout << GREEN << getType() << " constructor called!" << RESET << std::endl;
     _mind = new Brain();
+    this->_type = "Dog";
 }
 
 Dog::Dog(const Dog& copy) : Animal(copy)
@@ -30,8 +31,7 @@ Dog& Dog::operator=(const Dog& other)
     if (this != &other)
     {
         this->setType(other.getType());
-        delete this->_mind;
-        this->_mind = new Brain(*other._mind);   
+        *this->_mind = *other._mind;   
     }
     return (*this);
 }

@@ -6,16 +6,17 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 14:48:44 by aleperei          #+#    #+#             */
-/*   Updated: 2024/05/16 16:29:54 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/04 14:10:57 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Cat.hpp"
 
-Cat::Cat(void) : Animal("Cat")
+Cat::Cat(void) : Animal()
 {
     std::cout << GREEN << getType() << " constructor called!" << RESET << std::endl;
     _mind = new Brain();
+    this->_type = "Cat";
 }
 
 Cat::Cat(const Cat& copy) : Animal(copy)
@@ -30,8 +31,7 @@ Cat& Cat::operator=(const Cat& other)
     if (this != &other)
     {
         this->setType(other.getType());
-        delete this->_mind;
-        this->_mind = new Brain(*other._mind);
+        *this->_mind = *other._mind;
     }
     return (*this);
 }

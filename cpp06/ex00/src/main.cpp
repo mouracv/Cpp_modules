@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 17:07:27 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/04 13:43:11 by aleperei         ###   ########.fr       */
+/*   Created: 2024/04/18 13:52:17 by aleperei          #+#    #+#             */
+/*   Updated: 2024/06/04 16:20:59 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#include "../include/ScalarConverter.hpp"
 
-#include "Animal.hpp"
 
-class Brain
+int main(int ac, char** av)
 {
-    private:
-        std::string _ideas[100];
-    public:
-        Brain(void);
-        Brain(const Brain& copy);
-        Brain& operator=(const Brain& other);
-        ~Brain(void);
-
-        void setIdeas(std::string value);
-        void printIdeas(void) const;
-};
-
-
-
-
-
-
-
-
-#endif
+    if (ac != 2 || !av[1][0])
+        return((std::cerr << "Wrong input" << std::endl), 1);
+    else
+        ScalarConverter::convert(av[1]);
+    return (0);    
+}

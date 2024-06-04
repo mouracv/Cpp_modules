@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 17:07:27 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/04 13:43:11 by aleperei         ###   ########.fr       */
+/*   Created: 2024/06/04 15:38:22 by aleperei          #+#    #+#             */
+/*   Updated: 2024/06/04 17:30:03 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
-#include "Animal.hpp"
 
-class Brain
+#include <iostream>
+
+class ScalarConverter 
 {
     private:
-        std::string _ideas[100];
+        ScalarConverter(void);
+        ScalarConverter(const ScalarConverter& copy);
+        ScalarConverter& operator=(const ScalarConverter& other);
+        ~ScalarConverter(void);
+        
     public:
-        Brain(void);
-        Brain(const Brain& copy);
-        Brain& operator=(const Brain& other);
-        ~Brain(void);
-
-        void setIdeas(std::string value);
-        void printIdeas(void) const;
+        static void convert(std::string input);
 };
-
-
-
-
-
 
 
 
