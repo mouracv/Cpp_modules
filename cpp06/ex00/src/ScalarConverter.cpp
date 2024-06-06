@@ -69,21 +69,77 @@ static int checkLiteralType(std::string input)
     }
     (void) numf;
     
-    // errno = 0;
-    // double numd = std::strtod(input.c_str(), &end);
-    // if (*end == '\0' && errno != ERANGE)
-    // {
-    //     std::cout << numd << " " << std::numeric_limits<double>::min() << "   " << std::numeric_limits<double>::max() << std::endl;
-    //     if (numd > std::numeric_limits<double>::min() && numd < std::numeric_limits<double>::max())
-    //         return(DOUBLE);
-    // }
+    errno = 0;
+    double numd = std::strtod(input.c_str(), &end);
+    if (*end == '\0' && errno != ERANGE)
+    {
+        return(DOUBLE);
+    }
+    (void) numd;
     
     return(INVALID);
 }
 
 
+static int checkSpecialLiterals(int& opc, std::string input)
+{
+    int special = 0;
+    if (opc != 7)
+        return(special);
+    else
+    {
+        if (!input.compare("nan"))
+            special = NAN;
+        if (!input.compare("+inf")  || !input.compare("+inff"))
+            special = INFINITE;
+        if (!input.compare("-inf")  || !input.compare("-inff"))
+            special = INFINITE;
+    }
+    return(special);
+}
+
+static void printChar(char c)
+{
+    std::cout << "Char: " << c << std::endl;
+    int i = static_cast<int>(c);
+    std::cout << "Int: " << i << std::endl;
+    float j = static_cast<float>(c);
+    std::cout << "Float: " << j <<  'f' << std::endl;
+    double k = static_cast<double>(c);
+    std::cout << "Double: " << k << std::endl;
+
+}
+
 void ScalarConverter::convert(std::string input)
 {
+    if (input.empty())
+    {
+        std::cout << RED << "Invalid input!" << RESET << std::endl;
+        return;
+    }
+
     int opc = checkLiteralType(input);
-    std::cout << opc << std::endl;
+    // o str tol ja da handle no nan e no inf ou seja so preciso ver depois se ta td bem
+    int special = checkSpecialLiterals(opc, input);
+    std::cout << opc << " | "<< special <<std::endl;
+
+    switch(opc)
+    {
+        case CHAR:
+            printChar(input[0]);
+            break;
+        
+        case INT:
+            break;
+        
+        case FLOAT:
+            break;
+        
+        case DOUBLE:
+            break;
+        
+        default:
+            std::cout << RED << "Invalid type!" << RESET << std::endl;
+            break;
+    }
 }
