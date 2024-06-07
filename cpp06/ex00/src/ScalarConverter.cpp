@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:12:50 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/05 17:19:50 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/07 11:57:56 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,12 @@ static void printChar(char c)
     int i = static_cast<int>(c);
     std::cout << "Int: " << i << std::endl;
     float j = static_cast<float>(c);
+    if (std::floor(j) == j)
+        std::cout << std::fixed << std::setprecision(1);
     std::cout << "Float: " << j <<  'f' << std::endl;
     double k = static_cast<double>(c);
+    if (std::floor(k) == k)
+        std::cout << std::fixed << std::setprecision(1);
     std::cout << "Double: " << k << std::endl;
 
 }
