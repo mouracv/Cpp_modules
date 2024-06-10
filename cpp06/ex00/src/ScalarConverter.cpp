@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 16:12:50 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/07 11:57:56 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:41:09 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ static int checkLiteralType(std::string input)
     
     errno = 0;
     double numd = std::strtod(input.c_str(), &end);
+    std::cout << numd << " | " << errno << std::endl;
     if (*end == '\0' && errno != ERANGE)
     {
         return(DOUBLE);
@@ -79,7 +80,6 @@ static int checkLiteralType(std::string input)
     
     return(INVALID);
 }
-
 
 static int checkSpecialLiterals(int& opc, std::string input)
 {
@@ -114,14 +114,42 @@ static void printChar(char c)
 
 }
 
+static void printInt(int val)
+{
+    if ((val > 0 && val < 127))
+    {
+        if (std::isprint(val))   
+            std::cout << "Char: " << "'" << static_cast<char>(val) << "'" << std::endl;
+        else
+            std::cout << "Char: non displayable" << std::endl;       
+    }
+    else
+        std::cout << "Char: impossible" << std::endl;
+    std::cout << "Int: " << val << std::endl;
+    
+    float j = static_cast<float>(val);
+    if (std::floor(j) == j)
+        std::cout << std::fixed << std::setprecision(1);
+    std::cout << "Float: " << j <<  'f' << std::endl;
+    double k = static_cast<double>(val);
+    if (std::floor(k) == k)
+        std::cout << std::fixed << std::setprecision(1);
+    std::cout << "Double: " << k << std::endl;
+}
+
+static void printFloat(float val)
+{
+    
+}
+
+static void printDouble(double val)
+{
+    
+}
+
+
 void ScalarConverter::convert(std::string input)
 {
-    if (input.empty())
-    {
-        std::cout << RED << "Invalid input!" << RESET << std::endl;
-        return;
-    }
-
     int opc = checkLiteralType(input);
     // o str tol ja da handle no nan e no inf ou seja so preciso ver depois se ta td bem
     int special = checkSpecialLiterals(opc, input);
@@ -134,6 +162,7 @@ void ScalarConverter::convert(std::string input)
             break;
         
         case INT:
+            printInt(std::strtol(input.c_str(), NULL, 10));
             break;
         
         case FLOAT:

@@ -6,21 +6,20 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:38:22 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/07 11:59:26 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/10 16:24:56 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
-
 #include <iostream>
-#include <iomanip>
-#include <cctype>
-#include <limits>
+#include <string>
 #include <cstdlib>
 #include <cerrno>
+#include <iomanip>
 #include <cmath>
+#include <limits>
 
 
 #define RESET   "\033[0m"
