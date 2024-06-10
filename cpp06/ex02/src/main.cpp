@@ -6,24 +6,38 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:52:17 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/04 13:00:14 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/10 12:19:15 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "Zombie.hpp"
+#include "../include/Base.hpp"
 
 
-// int main()
-// {
-//     Zombie *alex = newZombie("twiliit");
-//     alex->announce();
-//     delete alex;
-//     randomChump("SAITAMA");
-//     randomChump("GENOS");
-//     randomChump("KAMUI");
+int main()
+{
+    std::cout <<YELLOW << "POINTERS" << RESET << std::endl;
+    Base* a1 = new A();
+    identify(a1);
+    Base* a2 = generate();
+    identify(a2);
+    Base* alex = new Base();
+    identify(alex);
+    
+    delete a1;
+    delete a2;
+    delete alex;
+    
+    std::cout << YELLOW << "REFERENCE" << RESET << std::endl;
+    C a4;
+    Base& a3 = a4;
+    identify(a3);
+    
+    A a9;
+    Base& a8 = a9;
+    identify(a8);
 
-//     Zombie *lo = newZombie("Marvin");
-//     lo->announce();
-//     delete lo;
-//     return (0);    
-// }
+    Base andre;
+    Base& a7 = andre;
+    identify(a7);
+    return (0);    
+}
