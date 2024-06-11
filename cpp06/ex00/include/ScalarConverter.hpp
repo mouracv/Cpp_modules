@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:38:22 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/10 16:24:56 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/11 16:52:29 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 #include <iomanip>
 #include <cmath>
 #include <limits>
-
+#include <sstream>
+#include <climits>
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"      
@@ -37,7 +38,8 @@ enum LiteralType
     INT,
     FLOAT,
     DOUBLE,
-    INFINITE,
+    SPECIAL,
+    INF,
     INVALID      
 };
 
