@@ -6,11 +6,11 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/06/12 12:59:59 by aleperei         ###   ########.fr        #
+#    Updated: 2024/06/10 12:14:59 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Converter
+NAME = Type
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 

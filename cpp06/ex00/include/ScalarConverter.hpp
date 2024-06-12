@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 15:38:22 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/11 16:52:29 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/12 15:20:53 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 #define BLUE    "\033[34m"      
 #define MAGENTA "\033[35m"      
 #define CYAN    "\033[36m"
-
 
 enum LiteralType
 {
