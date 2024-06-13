@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:02:24 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/12 16:04:11 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:47:46 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,23 @@
 
 #include <iostream>
 
+template<typename T>
+void swap(T& val1, T& val2)
+{
+    T tmp = val1;
+    val1 = val2;
+    val2 = tmp;
+}
 
+template<typename T>
+T& min(T& val1,  T& val2){
+    return((val1 < val2) ? val1 : val2);
+}
+
+template<typename T>
+T& max(T& val1,  T& val2){
+    return((val1 > val2) ? val1 : val2);
+}
 
 #endif
 
