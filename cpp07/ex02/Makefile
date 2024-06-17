@@ -6,7 +6,7 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/06/14 12:45:13 by aleperei         ###   ########.fr        #
+#    Updated: 2024/06/17 18:15:10 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = array
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCDIR = src
+SRCDIR = .
 OBJDIR = obj
 
 SRCS = $(wildcard $(SRCDIR)/*.cpp)
