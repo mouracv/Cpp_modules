@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:43:45 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/17 18:08:29 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/21 17:56:17 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,5 @@ template<typename T> class Array
                 const char *what() const throw(){return("The value is out of bounds!");}
         };
 };
-
-
-// #include "Array.tpp"
-
 
 #endif
