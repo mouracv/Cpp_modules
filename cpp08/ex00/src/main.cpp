@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:42:22 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/26 19:17:13 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:07:30 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,19 @@ int main(void)
     std::vector<int> alex;
     find = fill_cont(alex, 7);
     print_cont(alex, easyfind(alex, find), "Alex");
+
+    
+    std::list<int> gab;
+    find = fill_cont(gab, 10);
+    print_cont(gab, easyfind(gab, find), "Gab");
+
+    std::deque<int> leo;
+    find = fill_cont(leo, 11);
+    print_cont(leo, easyfind(leo, find), "Leo");
    
     
+    alex.clear();
+    gab.clear();
+    leo.clear();
     return(0);   
 }
