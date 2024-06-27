@@ -6,11 +6,11 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/06/13 14:20:31 by aleperei         ###   ########.fr        #
+#    Updated: 2024/06/27 18:37:39 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Types
+NAME = span
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
