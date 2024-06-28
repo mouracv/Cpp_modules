@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:05 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/27 18:42:15 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/28 14:43:56 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Span::Span(unsigned int size)
 {
     if (size > 10000)
-        throw(Span::Error::Error("N is too big!"));
+        throw(Span::Boundary("N is too big!"));
     
     _content.reserve(size);
 }
@@ -39,14 +39,30 @@ void Span::addNumber(int value)
     static int idx;
     
     if (_content.size() == _content.capacity())
-        throw(Span::Error::Error("Span class is full!"));
+        throw(Span::Boundary("Span class is full!"));
     else
         _content.insert(_content.begin() + idx++, value);
 }
 
+void Span::mutantAddNumber(void)
+{
+    srand(time(NULL));
+    std::vector<int>::iterator beg = _content.begin();
+    
+    while (beg != _content.end())
+    {
+        beg = _content.insert(beg, (rand() % (100 - 0 + 1)));
+        std::cout << "val: " << *beg << std::endl;
+        beg++;
+    }
+}
+
 int Span::shortestSpan(void)
 {
-    int dist = INT32_MAX;
+    if (_content.size() < _content.capacity())
+        throw(Span::Boundary("Not enougth elements to compare!"));
+    
+    int dist = INT_MAX;
     std::vector<int> tmp(_content);
     
     std::sort(tmp.begin(), tmp.end());
@@ -61,19 +77,36 @@ int Span::shortestSpan(void)
 
 int Span::longestSpan(void)
 {
+    if (_content.size() < _content.capacity())
+        throw(Span::Boundary("Not enougth elements to compare!"));
+    
     std::vector<int> tmp(_content);
     
     std::sort(tmp.begin(), tmp.end());
     return((tmp.back() - tmp.front()));
 }
 
+void Span::printSpan(void)
+{
+    // if (_content.size() != _content.capacity())
+    //     throw(Span::Boundary("Span class is not full to print!"));
+    
+    std::cout << MAGENTA << "Span content: ";
+    std::vector<int>::iterator it;
+    for (it = _content.begin(); it != _content.end(); it++)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << RESET << std::endl;
+}
 
 /***************************EXCEPTION CLASS************************/
 
-Span::ErrorSpan::ErrorSpan(std::string response){
-    _error_msg = response;
-}
+Span::Boundary::Boundary(std::string response) throw() 
+: _error_msg(response){}
 
-const char* Span::ErrorSpan::what() const throw(){
+Span::Boundary::~Boundary(void)throw() {}
+
+const char* Span::Boundary::what() const throw(){
     return(_error_msg.c_str());
 }

@@ -6,14 +6,20 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:18:47 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/27 18:39:47 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/06/28 14:19:41 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #ifndef SPAN_HPP
 #define SPAN_HPP
+
+#define RESET   "\033[0m"
+#define RED     "\033[31m"      
+#define GREEN   "\033[32m"      
+#define YELLOW  "\033[33m"      
+#define BLUE    "\033[34m"      
+#define MAGENTA "\033[35m"      
+#define CYAN    "\033[36m" 
 
 
 #include <iostream>
@@ -21,7 +27,8 @@
 #include <algorithm>
 #include <vector>
 #include <exception>
-
+#include <climits>
+#include <cstdlib>
 
 class Span 
 {
@@ -34,17 +41,20 @@ class Span
         Span& operator=(const Span& other);
         ~Span(void);
 
-        void addNumber(int value);
-        int shortestSpan(void);
+        void printSpan(void);
         int longestSpan(void);
+        int shortestSpan(void);
+        void addNumber(int value);
+        void mutantAddNumber(void);
     
     public:
-        class ErrorSpan : public std::exception
+        class Boundary : public std::exception
         {
             private:
                 std::string _error_msg;
             public:
-                ErrorSpan(std::string msg);
+                Boundary(std::string msg) throw();
+                ~Boundary(void) throw();
                 const char* what(void) const throw();
         };
 };
