@@ -23,12 +23,13 @@ Span::Span(unsigned int size)
 
 Span::Span(const Span& copy)
 {
-    (void)copy;
+    *this = copy;
 }
 
 Span& Span::operator=(const Span& other)
 {
-    (void)other;
+    if (this != &other)
+        this->_content = other._content;
     return(*this);
 }
 
@@ -36,25 +37,36 @@ Span::~Span(void){}
 
 void Span::addNumber(int value)
 {
-    static int idx;
-    
     if (_content.size() == _content.capacity())
         throw(Span::Boundary("Span class is full!"));
     else
-        _content.insert(_content.begin() + idx++, value);
+        _content.push_back(value);
 }
 
-void Span::mutantAddNumber(void)
+void Span::upgradeAddNumber(void)
 {
     srand(time(NULL));
-    std::vector<int>::iterator beg = _content.begin();
-    
-    while (beg != _content.end())
+    try
     {
-        beg = _content.insert(beg, (rand() % (100 - 0 + 1)));
-        std::cout << "val: " << *beg << std::endl;
-        beg++;
+        for (size_t i = 0; i < _content.capacity(); i++)
+            addNumber(rand() % 10000 - 0 + 1);
     }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+}
+
+void Span::mutantRange(void)
+{
+    srand(time(NULL));
+
+    std::vector<int> tmp;
+    tmp.reserve(_content.capacity());
+    for (size_t i = 0; i <tmp.capacity(); i++)
+        tmp.push_back(rand() % (10000 - 0 + 1));
+  
+    _content.insert(_content.begin(), tmp.begin(), tmp.end());
 }
 
 int Span::shortestSpan(void)
@@ -88,8 +100,8 @@ int Span::longestSpan(void)
 
 void Span::printSpan(void)
 {
-    // if (_content.size() != _content.capacity())
-    //     throw(Span::Boundary("Span class is not full to print!"));
+    if (_content.size() != _content.capacity())
+        throw(Span::Boundary("Span class is not full to print!"));
     
     std::cout << MAGENTA << "Span content: ";
     std::vector<int>::iterator it;

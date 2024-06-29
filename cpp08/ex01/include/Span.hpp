@@ -45,7 +45,8 @@ class Span
         int longestSpan(void);
         int shortestSpan(void);
         void addNumber(int value);
-        void mutantAddNumber(void);
+        void mutantRange(void);
+        void upgradeAddNumber(void);
     
     public:
         class Boundary : public std::exception
