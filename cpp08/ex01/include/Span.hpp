@@ -33,6 +33,7 @@
 class Span 
 {
     private:
+        unsigned int _N;
         std::vector<int> _content;
         
     public:
