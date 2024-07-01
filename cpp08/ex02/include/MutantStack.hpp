@@ -21,6 +21,49 @@
 #define MAGENTA "\033[35m"      
 #define CYAN    "\033[36m" 
 
+#include <iostream>
+#include <string>
+#include <deque>
+#include <stack>
+#include <list>
+
+
+template<typename T>
+class MutantStack : public std::stack<T>
+{
+    public:
+        MutantStack(void)
+        {
+
+        }
+
+        MutantStack(const MutantStack& copy){
+            *this = copy;
+        }
+
+        MutantStack& operator=(const MutantStack& other)
+        {
+            if (this != &other)
+            {
+                this->c = other.c;
+            }
+
+            return(*this);
+        }
+
+        ~MutantStack(void) {}
+    
+    public:
+        typedef typename std::stack<T>::container_type::iterator iterator;
+
+        iterator begin(void){
+            return(this->c.begin());
+        }
+
+        iterator end(void){
+            return(this->c.end());
+        }
+};
 
 
 #endif
