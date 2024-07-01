@@ -12,7 +12,7 @@
 
 #include "../include/Span.hpp"
 
-
+//testando
 int main(void)
 {
     std::cout << YELLOW << "///////////////// 42 TEST /////////////////" << RESET << std::endl;
