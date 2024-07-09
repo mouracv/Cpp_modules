@@ -25,6 +25,7 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@clear
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
