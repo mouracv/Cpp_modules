@@ -35,38 +35,54 @@ void printMap(const std::map<std::string, float>& myMap) {
     }
 }
 
+void printResult(std::map<std::string, float>& database, std::string& date, float& value)
+{
+    float result;
+    std::map<std::string, float>::iterator it = database.find(date);
+
+    if (it != database.end())
+        result = it->second * value;
+    else
+    {
+        it = database.lower_bound(date);
+        it--;
+        result = it->second * value;
+    }
+    std::cout << date << " => " << value << " = " << result << std::endl;
+}
+
 void validate_year(std::string copy)
 {
     if (copy.size() != 10)
-        throw("bad size");
+        throw("10bad input!");
     else if (std::count(copy.begin(), copy.end(), '-') != 2)
-        throw("erro");
+        throw("11bad input!");
     
     long value;
-    char *end = NULL;
+    char *end;
 
     std::string year = copy.substr(0, copy.find('-'));
     copy.erase(0, copy.find('-') + 1);
     value = strtol(year.c_str(), &end, 10);
-    if (!isdigit(year[0]) || *end != '\0' || errno == ERANGE)
+    if (year.size() != 4 || !isdigit(year[0]) || *end != '\0' || errno == ERANGE)
         throw("1bad input!");
-    else if (value >= current_year())
-        throw("bad year!");
+    else if (value > current_year() || value < 2009)
+        throw("Invalid year!");
     
     std::string month = copy.substr(0, copy.find('-'));
     copy.erase(0, copy.find('-') + 1);
     value = strtol(month.c_str(), &end, 10);
-    if (!isdigit(month[0]) || *end != '\0' || errno == ERANGE)
+    if (month.size() != 2 || !isdigit(month[0]) || *end != '\0' || errno == ERANGE)
         throw("6bad input!");
     else if (!(value >= 1 && value <= 12))
-        throw("bad month");
+        throw("Invalid month!");
     
 
     value = strtol(copy.c_str(), &end, 10);
-    if (!isdigit(copy[0]) || *end != '\0' || errno == ERANGE)
+    if (copy.size() != 2 || !isdigit(copy[0]) || *end != '\0' || errno == ERANGE)
         throw("7bad input!");
     else if (!(value >= 1 && value <= 31))
-        throw("bad day");
+        throw("Invalid day!");
 }
 
 void readDataBase(std::ifstream& file, std::map<std::string, float>& content)
@@ -75,7 +91,7 @@ void readDataBase(std::ifstream& file, std::map<std::string, float>& content)
     std::string year;
     std::string num;
     float value;
-    char *end = NULL;
+    char *end;
 
     std::getline(file, line);
     if (line != "date,exchange_rate")
@@ -94,29 +110,12 @@ void readDataBase(std::ifstream& file, std::map<std::string, float>& content)
         num = line.substr(line.find_first_of(',') + 1);
         value = strtof(num.c_str(), &end);
         if (*end != '\0' || errno == ERANGE )
-            throw("5bad input!");
+            throw("Invalid float");
         if (value < 0)
             throw("not a positive number!");
-        //chech date
+
         content.insert(std::make_pair(year, value));
-        num.clear();
-        line.clear();
     }
-}
-
-void printResult(std::map<std::string, float>& database, std::string& date, float& value)
-{
-    float result;
-    std::map<std::string, float>::iterator it = database.find(date);
-
-    if (it != database.end())
-        result = it->second * value;
-    else
-    {
-        it = database.lower_bound(date);
-        result = it->second * value;
-    }
-    std::cout << date << " => " << value << " = " << result << std::endl;
 }
 
 void readInput(std::map<std::string, float>& database, std::ifstream& inputFile)
@@ -124,9 +123,9 @@ void readInput(std::map<std::string, float>& database, std::ifstream& inputFile)
     std::string line;
     std::string year;
     std::string num;
-    // float value;
-    // char *end = NULL;
-    (void)database;
+    float value;
+    char *end;
+    
     std::getline(inputFile, line);
     line.clear();
     
@@ -135,29 +134,29 @@ void readInput(std::map<std::string, float>& database, std::ifstream& inputFile)
         try
         {
             if (std::count(line.begin(), line.end(), '|') != 1 || line.find(" | ") == std::string::npos)
-                throw("8bad input!");
-            
-            // size_t beg = line.find(" | ");
-
+            {
+                std::cerr << "Error: bad input => " << line << std::endl;
+                continue;
+            }
+        
             year = line.substr(0, line.find(" | "));
             validate_year(year);
 
             num = line.substr(line.find(" | ") + 3);
-            std::cout << "num: (" << num << ")"<< std::endl;
-        //     value = strtof(num.c_str(), &end);
-        //     if (!isdigit(num[0]) || *end != '\0' || errno == ERANGE )
-        //         throw("9bad input!");
-        //     if (value < 0)
-        //         throw("Error: not a positive number!");
-        //     else if (value > 1000)
-        //         throw("Error: too large a number!");
+            value = strtof(num.c_str(), &end);
+            if ((!isdigit(num[0]) && num[0] != '-') || *end != '\0' || errno == ERANGE )
+                throw("Invalid float!");
+            if (value < 0)
+                throw("not a positive number!");
+            else if (value > 1000)
+                throw("too large a number!");
             
 
-        //     printResult(database, year, value);
+            printResult(database, year, value);
         }
         catch(const char* e)
         {
-            std::cerr << e << '\n';
+            std::cerr << "Error 💀: " << e << '\n';
         }
         
     }
@@ -167,12 +166,11 @@ void readInput(std::map<std::string, float>& database, std::ifstream& inputFile)
 
 int main(int ac, char** av)
 {
-    (void)av;
     if (ac != 2)
         return((std::cerr << RED << "Error: could not open file.\n" << END), 1);
     
     std::ifstream dataBaseFile;
-    dataBaseFile.open("database/data.csv");
+    dataBaseFile.open("data.csv");
     if (!dataBaseFile.is_open())
         return((std::cerr << RED << "Error: could not open file.\n" << END), 1);
     
@@ -181,26 +179,25 @@ int main(int ac, char** av)
     {
         readDataBase(dataBaseFile, database);
         dataBaseFile.close();
-        // printMap(database);
     }
     catch(const char* e)
     {
-        std::cerr << "Error 💀: " << e << '\n';
+        std::cerr << "Error in Database💥: " << e << '\n';
         dataBaseFile.close();
         database.clear();
         return(1);
     }
-    
 
     std::ifstream inputFile;
-    inputFile.open("database/input.csv");
+    inputFile.open(av[1]);
     if (!inputFile.is_open())
     {
         database.clear();
         return((std::cout << RED << "Error: could not open file.\n" << END), 1);
     }
     readInput(database, inputFile);
-    // read_database(inputFile, input, PIPE);
-    // printMap(input);
+    database.clear();
+    inputFile.close();
+
     return(0);
 }
