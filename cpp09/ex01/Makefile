@@ -6,11 +6,11 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/06/30 19:04:42 by aleperei         ###   ########.fr        #
+#    Updated: 2024/07/12 21:49:26 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = RPN
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -25,6 +25,7 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@clear
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
