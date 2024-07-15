@@ -14,8 +14,13 @@
 #include <sstream>
 #include <string>
 #include <stack>
+#include <algorithm>
 #include <ctype.h>
 
+void err(int opc);
+bool checkChar(char c);
+bool isTokenOpr(char c);
+int calculator(std::stack<int>& datastack, char opt);
 
 
 #endif
