@@ -17,8 +17,10 @@ void err(int opc)
         std::cerr << RED << "Error: Invalid division for 0.\n";
     else if (opc == 3)
         std::cerr << RED << "Error: Not enougth numbers for calculation.\n";
+    else if (opc == 4)
+        std::cerr << RED << "Error: Invalid character.\n";
     else
-        std::cerr << RED << "Error: Invalid character1.\n";
+        std::cerr << RED << "Error: Not enougth operators.\n";
 
     std::cout << END;
 }
@@ -28,18 +30,19 @@ bool checkChar(char c)
     return !(isdigit(c) || isTokenOpr(c) || c == ' ');
 }
 
-int calculator(std::stack<int>& datastack, char opt)
+int calculator(std::stack<int>& datastack, char opt, int& flag)
 {
     if (datastack.size() < 2)
         return(err(3), 1);
     
+    flag++;
     int res = 0;
     int first = datastack.top();
     datastack.pop();
     int sec = datastack.top();
     datastack.pop();
 
-    std::cout << "opt " << opt << std::endl;
+    std::cout << "operation: " << sec << " " << opt  << " " << first << " = ";
     switch (opt)
     {
         case '+':
@@ -68,28 +71,37 @@ int calculator(std::stack<int>& datastack, char opt)
         default:
             break;
     }
+    std::cout << res << std::endl;
     return(0);
 }
 
-// void RPN(char* arg)
-// {
-//     // std::istringstream box(arg);
-//     std::stack<int> dataStack;
-//     int value;
-//     for (size_t i = 0; arg[i] != '\0'; i++)
-//     {
-//         std::cout << "args: " << arg[i] << std::endl;
-//         if (isdigit(arg[i]) && !isdigit(arg[i + 1]))
-//         {
-//             value = static_cast<int>(arg[i]);
-//             std::cout << i << " | " << value << std::endl;
-//             dataStack.push(value);
-//         }
-//         else if (isToken(arg[i]) && calculator(dataStack, arg[i]))
-//             return;
-//         else if (!isspace(arg[i]))
-//             return(err(4));
-//     }
-//     std::cout << dataStack.top() << std::endl;
-//     dataStack.pop();
-// }
+void RPN(std::string arg)
+{
+    if (std::find_if(arg.begin(), arg.end(), checkChar) != arg.end())
+        return err(4);
+
+    std::istringstream box(arg);
+    std::stack<int> dataStack;
+    std::string value;
+    int operatorFlag = 0;;
+
+    while (true)
+    {
+        box >> value;
+        if (box.fail())
+            break;
+        if (value.size() != 1)
+            return err(4);
+                
+        if (!isTokenOpr(value[0]))
+            dataStack.push(value[0] - '0');
+        else if (calculator(dataStack, value[0], operatorFlag))
+            return;
+    }
+    
+    if (dataStack.size() == 1 && operatorFlag > 0)
+        std::cout << "Result: " << dataStack.top() << std::endl;
+    else
+        return err(5);
+
+}

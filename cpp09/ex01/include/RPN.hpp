@@ -20,7 +20,7 @@
 void err(int opc);
 bool checkChar(char c);
 bool isTokenOpr(char c);
-int calculator(std::stack<int>& datastack, char opt);
-
+void RPN(std::string arg);
+int calculator(std::stack<int>& datastack, char opt, int& flag);
 
 #endif
