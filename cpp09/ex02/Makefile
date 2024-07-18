@@ -6,7 +6,7 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/07/16 15:08:19 by aleperei         ###   ########.fr        #
+#    Updated: 2024/07/18 13:05:20 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@clear
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp

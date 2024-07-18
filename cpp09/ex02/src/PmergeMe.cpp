@@ -45,7 +45,7 @@ bool fillConteiners(char** av, std::vector<int>& vectorContent, std::list<int>& 
     for (size_t i = 1; av[i]; i++)
     {
         value = strtol(av[i], &end, 10);
-        if (*end != '\0' || errno == ERANGE)
+        if (*end != '\0' || errno == ERANGE || value < 0)
             return(err(2), 0);
         
         vectorContent.push_back(value);
