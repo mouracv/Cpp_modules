@@ -1,5 +1,13 @@
 
 #include "../include/PmergeMe.hpp"
+#include<unistd.h>
+
+void printVector(const std::vector<int>& vec) {
+    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+}
 
 void print_lista(const std::list<int>& lista) {
     // Declarando um iterador para percorrer a lista
@@ -7,8 +15,9 @@ void print_lista(const std::list<int>& lista) {
 
     // Iterando pela lista e imprimindo os elementos
     for (it = lista.begin(); it != lista.end(); ++it) {
-        std::cout << *it << std::endl;
+        std::cout << *it << ' ';
     }
+    std::cout << std::endl;
 }
 
 void sortList(std::list<int>& content)
@@ -16,11 +25,12 @@ void sortList(std::list<int>& content)
     if (content.size() == 1)
         return;
     
-    std::list<int>::iterator next = content.begin()++;
+    std::list<int>::iterator next = ++content.begin();
     std::list<int>::iterator prev = content.begin();
     std::list<int> mins, maxs;
     
-    for (size_t i = 0; ( i < content.size() - 1); i++)
+    // next++;
+    for(size_t i = 0; i < (content.size() - 1); i += 2)
     {
         if (*prev <= *next)
         {
@@ -32,27 +42,38 @@ void sortList(std::list<int>& content)
             mins.push_back(*next);
             maxs.push_back(*prev);
         }
-        prev++;
-        next++;
+
+        std::advance(prev, 2);
+        std::advance(next, 2);
     }
 
     if (content.size() % 2)
         maxs.push_back(content.back());
-    
+
+    // print_lista(mins);    
+    // print_lista(maxs);
+    std::cout << YELLOW << "Recursividade Merge" << END << std::endl;
+    print_lista(mins);
+    print_lista(maxs);
+    std::cout << "**********************" << std::endl;
+
     sortList(mins);
+    // return;
+
+    std::cout << "Insertion" << std::endl;
+    print_lista(mins);
+    print_lista(maxs);
+    std::cout << "**********************" << std::endl;
 
     for (next = maxs.begin(); (next != maxs.end()); next++)
         mins.insert(std::upper_bound(mins.begin(), mins.end(), *next), *next);
     
+    std::cout << "Afther Insertion" << std::endl;
+    print_lista(mins);
+    std::cout << RED << "**********************" <<  END << std::endl;
+
     content = mins;
     
-}
-
-void printVector(const std::vector<int>& vec) {
-    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
 }
 
 void sortVector(std::vector<int>& content)
@@ -116,14 +137,20 @@ void PmergeMe(char **av)
     }
 
     //sortear as listas
-    listContent.clear();
-    sortVector(vectorContent);
-    printVector(vectorContent);
+    // listContent.clear();
+    // sortVector(vectorContent);
+    // printVector(vectorContent);
     std::cout << YELLOW << "**********************************" << END << std::endl;
-    sortList(listContent);
     print_lista(listContent);
+    sortList(listContent);
+    // print_lista(listContent);
     //sortList();
 }
+
+/*Before: 3 5 9 7 4
+After: 3 4 5 7 9
+Time to process a range of 5 elements with std::[..] : 0.00031 us
+Time to process a range of 5 elements with std::[..] : 0.00014 us*/
 
 int main(int ac, char** av)
 {
