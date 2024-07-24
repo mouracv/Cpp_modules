@@ -1,12 +1,20 @@
 
 #include "../include/PmergeMe.hpp"
-#include<unistd.h>
+
 
 void printVector(const std::vector<int>& vec) {
     for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
+    
+}
+
+long long getTime()
+{
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return tv.tv_sec * 1000000LL + tv.tv_usec;
 }
 
 void print_lista(const std::list<int>& lista) {
@@ -19,6 +27,7 @@ void print_lista(const std::list<int>& lista) {
     }
     std::cout << std::endl;
 }
+
 
 void sortList(std::list<int>& content)
 {
@@ -52,25 +61,25 @@ void sortList(std::list<int>& content)
 
     // print_lista(mins);    
     // print_lista(maxs);
-    std::cout << YELLOW << "Recursividade Merge" << END << std::endl;
-    print_lista(mins);
-    print_lista(maxs);
-    std::cout << "**********************" << std::endl;
+    // std::cout << YELLOW << "Recursividade Merge" << END << std::endl;
+    // print_lista(mins);
+    // print_lista(maxs);
+    // std::cout << "**********************" << std::endl;
 
     sortList(mins);
     // return;
 
-    std::cout << "Insertion" << std::endl;
-    print_lista(mins);
-    print_lista(maxs);
-    std::cout << "**********************" << std::endl;
+    // std::cout << "Insertion" << std::endl;
+    // print_lista(mins);
+    // print_lista(maxs);
+    // std::cout << "**********************" << std::endl;
 
     for (next = maxs.begin(); (next != maxs.end()); next++)
         mins.insert(std::upper_bound(mins.begin(), mins.end(), *next), *next);
     
-    std::cout << "Afther Insertion" << std::endl;
-    print_lista(mins);
-    std::cout << RED << "**********************" <<  END << std::endl;
+    // std::cout << "Afther Insertion" << std::endl;
+    // print_lista(mins);
+    // std::cout << RED << "**********************" <<  END << std::endl;
 
     content = mins;
     
@@ -86,7 +95,7 @@ void sortVector(std::vector<int>& content)
 
     while (it != (content.end()) && (it + 1) != (content.end()))
     {
-        std::cout << "Loop de divisao" << std::endl;
+        // // std::cout << "Loop de divisao" << std::endl;
         if (*it <= *(it + 1))
         {
             mins.push_back(*it);
@@ -104,25 +113,54 @@ void sortVector(std::vector<int>& content)
         maxs.push_back(content.back());
     
     //Merge sort
-    std::cout << YELLOW << "Recursividade Merge" << END << std::endl;
-    printVector(mins);
-    printVector(maxs);
-    std::cout << "**********************" << std::endl;
+    // std::cout << YELLOW << "Recursividade Merge" << END << std::endl;
+    // printVector(mins);
+    // printVector(maxs);
+    // std::cout << "**********************" << std::endl;
     sortVector(mins);
 
-    std::cout << "Insertion" << std::endl;
-    printVector(mins);
-    printVector(maxs);
-    std::cout << "**********************" << std::endl;
+    // std::cout << "Insertion" << std::endl;
+    // printVector(mins);
+    // printVector(maxs);
+    // std::cout << "**********************" << std::endl;
     for (size_t i = 0; i < maxs.size(); i++)
         mins.insert(std::upper_bound(mins.begin(), mins.end(), maxs[i]), maxs[i]);
     
-    std::cout << "Afther Insertion" << std::endl;
-    printVector(mins);
-    std::cout << "**********************" << std::endl;
+    // std::cout << "Afther Insertion" << std::endl;
+    // printVector(mins);
+    // std::cout << "**********************" << std::endl;
     content = mins;
 
 }
+
+void printText(std::vector<int> copy)
+{
+    std::cout << "Before: ";
+    printVector(copy);
+    std::sort(copy.begin(), copy.end());
+    std::cout << "Afther: ";
+    printVector(copy);
+}
+
+
+// void printResult(long long begin, long long end, int size, bool flag)
+// {
+//     std::cout << "Time to process a range of " << size ;
+//     std::cout << " elements with ";
+
+//     if (!flag)
+//     {
+//         std::cout << "std::vector";
+//         if (size > 5)
+//             std::cout << "[...] :";
+//         else
+//             printVector
+//     }
+//     else
+//         std::cout << "std::list";
+        
+//     std::cout << (end - begin) << " us" << std::endl;
+// }
 
 void PmergeMe(char **av)
 {
@@ -135,16 +173,14 @@ void PmergeMe(char **av)
         listContent.clear();
         return;
     }
+    printText(vectorContent);
 
-    //sortear as listas
-    // listContent.clear();
-    // sortVector(vectorContent);
-    // printVector(vectorContent);
+    sortVector(vectorContent);
+
     std::cout << YELLOW << "**********************************" << END << std::endl;
-    print_lista(listContent);
+    
     sortList(listContent);
-    // print_lista(listContent);
-    //sortList();
+    
 }
 
 /*Before: 3 5 9 7 4
