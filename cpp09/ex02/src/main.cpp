@@ -1,34 +1,6 @@
 
 #include "../include/PmergeMe.hpp"
 
-
-void printVector(const std::vector<int>& vec) {
-    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
-    
-}
-
-long long getTime()
-{
-	struct timeval tv;
-	gettimeofday(&tv, NULL);
-	return tv.tv_sec * 1000000LL + tv.tv_usec;
-}
-
-void print_lista(const std::list<int>& lista) {
-    // Declarando um iterador para percorrer a lista
-    std::list<int>::const_iterator it;
-
-    // Iterando pela lista e imprimindo os elementos
-    for (it = lista.begin(); it != lista.end(); ++it) {
-        std::cout << *it << ' ';
-    }
-    std::cout << std::endl;
-}
-
-
 void sortList(std::list<int>& content)
 {
     if (content.size() == 1)
@@ -133,39 +105,15 @@ void sortVector(std::vector<int>& content)
 
 }
 
-void printText(std::vector<int> copy)
-{
-    std::cout << "Before: ";
-    printVector(copy);
-    std::sort(copy.begin(), copy.end());
-    std::cout << "Afther: ";
-    printVector(copy);
-}
-
-
-// void printResult(long long begin, long long end, int size, bool flag)
-// {
-//     std::cout << "Time to process a range of " << size ;
-//     std::cout << " elements with ";
-
-//     if (!flag)
-//     {
-//         std::cout << "std::vector";
-//         if (size > 5)
-//             std::cout << "[...] :";
-//         else
-//             printVector
-//     }
-//     else
-//         std::cout << "std::list";
-        
-//     std::cout << (end - begin) << " us" << std::endl;
-// }
-
 void PmergeMe(char **av)
 {
     std::vector<int> vectorContent;
     std::list<int> listContent;
+    long long startvec;
+    long long startlst;
+    long long endvec;
+    long long endlst;
+
 
     if (!fillConteiners(av, vectorContent, listContent))
     {
@@ -175,18 +123,18 @@ void PmergeMe(char **av)
     }
     printText(vectorContent);
 
+    startvec = getTime();
     sortVector(vectorContent);
+    endvec = getTime();
 
-    std::cout << YELLOW << "**********************************" << END << std::endl;
     
+    startlst = getTime();
     sortList(listContent);
-    
-}
+    endlst = getTime();
 
-/*Before: 3 5 9 7 4
-After: 3 4 5 7 9
-Time to process a range of 5 elements with std::[..] : 0.00031 us
-Time to process a range of 5 elements with std::[..] : 0.00014 us*/
+    printResult(startvec, endvec, &vectorContent, NULL, vectorContent.size());
+    printResult(startlst, endlst, NULL, &listContent, vectorContent.size());
+}
 
 int main(int ac, char** av)
 {

@@ -21,5 +21,8 @@
 void err(int opc);
 bool fillConteiners(char** av, std::vector<int>& vectorContent, std::list<int>& listContent);
 bool isSorted(std::vector<int>::iterator first, std::vector<int>::iterator last);
+void printResult(long long begin, long long end, std::vector<int>* vec, std::list<int>* lst, int size);
+long long getTime();
+void printText(std::vector<int> copy);
 
 #endif

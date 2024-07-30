@@ -18,6 +18,36 @@ void err(int opc)
     std::cout << END;
 }
 
+void printVector(const std::vector<int>& vec) {
+    for (std::vector<int>::const_iterator it = vec.begin(); it != vec.end(); ++it) {
+        std::cout << *it;
+        if ((it + 1) != vec.end())
+            std::cout << ", ";
+    }
+    
+}
+
+long long getTime()
+{
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return tv.tv_sec * 1000000LL + tv.tv_usec;
+}
+
+void print_lista(const std::list<int>& lista) {
+    // Declarando um iterador para percorrer a lista
+    std::list<int>::const_iterator it;
+    std::list<int>::const_iterator next;
+
+    // Iterando pela lista e imprimindo os elementos
+    for (it = lista.begin(); it != lista.end(); ++it) {
+        std::cout << *it;
+        next = it;
+        if (++next != lista.end())
+            std::cout << ", ";
+    }
+}
+
 bool isSorted(std::vector<int>::iterator first, std::vector<int>::iterator last)
 {
     std::vector<int>::iterator next = first;
@@ -56,4 +86,55 @@ bool fillConteiners(char** av, std::vector<int>& vectorContent, std::list<int>& 
         return(err(3), 0);
     
     return(1);
+}
+
+void printText(std::vector<int> copy)
+{
+    std::cout << "Before: ";
+    for(size_t i = 0; i < 5 ; i++)
+        std::cout << copy[i] << ' ';
+
+    if (copy.size() > 5)
+        std::cout << "[...]";
+    std::cout << std::endl;
+    
+    std::sort(copy.begin(), copy.end());
+    
+    std::cout << "Afther: ";
+    for(size_t i = 0; i < 5 ; i++)
+        std::cout << copy[i] << ' ';
+
+    if (copy.size() > 5)
+        std::cout << "[...]";
+    std::cout << std::endl;
+}
+
+void printResult(long long begin, long long end, std::vector<int>* vec, std::list<int>* lst, int size)
+{
+    std::cout << "Time to process a range of " << size << " elements with std::";
+
+    if (vec)
+    {
+        std::cout << "vector[";
+        if (vec->size() > 5)
+            std::cout << "...] : ";
+        else
+        {
+            printVector(*vec);
+            std::cout << "] : ";
+        }
+    }
+    else
+    {
+        std::cout << "list[";
+        if (lst->size() > 5)
+            std::cout << "...] : ";
+        else
+        {
+            print_lista(*lst);
+            std::cout << "] : ";
+        }
+    }
+
+    std::cout << (end - begin) << " us" << std::endl;
 }
