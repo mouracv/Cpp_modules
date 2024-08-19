@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:43:45 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/21 17:56:17 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/08/19 16:57:22 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,15 @@ template<typename T> class Array
             _content = new T[len];
         }  
         
-        Array(const Array& copy)
+        Array(const Array& copy) : _content(NULL), _length(0)
         {
-            _content = new T[copy._length];
-            _length = copy._length;
-            for (unsigned int i = 0; i < _length; i++)
-                _content[i] = copy._content[i];
+            if (copy._content)
+            {
+                _content = new T[copy._length];
+                _length = copy._length;
+                for (unsigned int i = 0; i < _length; i++)
+                    _content[i] = copy._content[i];
+            }
         }
           
         Array& operator=(const Array& other)
@@ -50,12 +53,20 @@ template<typename T> class Array
             if (this != &other)
             {
                 if (this->_content)
+                {
                     delete [] this->_content;
-                this->_content = new T[other._length];
-                this->_length = other._length;
+                    _content = NULL;
+                    _length = 0;
+                }
                 
-                for (unsigned int i = 0; i < this->_length; i++)
-                    this->_content[i] = other._content[i];
+                if (other._content)
+                {
+                    this->_content = new T[other._length];
+                    this->_length = other._length;
+                    
+                    for (unsigned int i = 0; i < this->_length; i++)
+                        this->_content[i] = other._content[i];
+                }    
             }
             return(*this);
         }

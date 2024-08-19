@@ -28,13 +28,6 @@ int current_year()
   return(1900 + pTInfo->tm_year);
 }
 
-void printMap(const std::map<std::string, float>& myMap) {
-    // Iterando sobre o map usando iteradores explícitos
-    for (std::map<std::string, float>::const_iterator it = myMap.begin(); it != myMap.end(); ++it) {
-        std::cout << it->first << ": " << it->second << std::endl;
-    }
-}
-
 void printResult(std::map<std::string, float>& database, std::string& date, float& value)
 {
     float result;
@@ -54,9 +47,9 @@ void printResult(std::map<std::string, float>& database, std::string& date, floa
 void validate_year(std::string copy)
 {
     if (copy.size() != 10)
-        throw("10bad input!");
+        throw("bad input!");
     else if (std::count(copy.begin(), copy.end(), '-') != 2)
-        throw("11bad input!");
+        throw("bad input!");
     
     long value;
     char *end;
@@ -65,7 +58,7 @@ void validate_year(std::string copy)
     copy.erase(0, copy.find('-') + 1);
     value = strtol(year.c_str(), &end, 10);
     if (year.size() != 4 || !isdigit(year[0]) || *end != '\0' || errno == ERANGE)
-        throw("1bad input!");
+        throw("bad input!");
     else if (value > current_year() || value < 2009)
         throw("Invalid year!");
     
@@ -73,14 +66,14 @@ void validate_year(std::string copy)
     copy.erase(0, copy.find('-') + 1);
     value = strtol(month.c_str(), &end, 10);
     if (month.size() != 2 || !isdigit(month[0]) || *end != '\0' || errno == ERANGE)
-        throw("6bad input!");
+        throw("bad input!");
     else if (!(value >= 1 && value <= 12))
         throw("Invalid month!");
     
 
     value = strtol(copy.c_str(), &end, 10);
     if (copy.size() != 2 || !isdigit(copy[0]) || *end != '\0' || errno == ERANGE)
-        throw("7bad input!");
+        throw("bad input!");
     else if (!(value >= 1 && value <= 31))
         throw("Invalid day!");
 }
@@ -95,14 +88,14 @@ void readDataBase(std::ifstream& file, std::map<std::string, float>& content)
 
     std::getline(file, line);
     if (line != "date,exchange_rate")
-        throw("2bad input!");
+        throw("bad format!");
 
     line.clear();
     errno = 0;
     while (std::getline(file, line))
     {
         if (std::count(line.begin(), line.end(), ',') != 1)
-            throw("3bad input!");
+            throw("bad input(separator problem)!");
         
         year = line.substr(0, line.find_first_of(','));
         validate_year(year);
@@ -110,7 +103,7 @@ void readDataBase(std::ifstream& file, std::map<std::string, float>& content)
         num = line.substr(line.find_first_of(',') + 1);
         value = strtof(num.c_str(), &end);
         if (*end != '\0' || errno == ERANGE )
-            throw("Invalid float");
+            throw("Invalid float!");
         if (value < 0)
             throw("not a positive number!");
 
@@ -193,7 +186,7 @@ int main(int ac, char** av)
     if (!inputFile.is_open())
     {
         database.clear();
-        return((std::cout << RED << "Error: could not open file.\n" << END), 1);
+        return((std::cerr << RED << "Error: could not open file.\n" << END), 1);
     }
     readInput(database, inputFile);
     database.clear();

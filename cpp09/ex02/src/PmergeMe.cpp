@@ -2,20 +2,17 @@
 #include "../include/PmergeMe.hpp"
 
 void err(int opc)
-{
-    std::cout << RED;
-    if (opc == 1)
-        std::cerr << RED << "Error: Invalid argument💀.\n";
-    else if (opc == 2)
-        std::cerr << RED << "Error: Invalid number❌.\n";
-    else if (opc == 3)
-        std::cerr << RED << "Error: Input is already sorted✅.\n";
-    else if (opc == 4)
-        std::cerr << RED << "Error: Invalid character.\n";
-    else
-        std::cerr << RED << "Error: Not enougth operators.\n";
 
-    std::cout << END;
+{
+    std::cerr << RED;
+    if (opc == 1)
+        std::cerr << "Error: Invalid argument💀.\n";
+    else if (opc == 2)
+        std::cerr << "Error: Invalid number❌.\n";
+    else if (opc == 3)
+        std::cerr << "Error: Input is already sorted✅.\n";
+
+    std::cerr << END;
 }
 
 void printVector(const std::vector<int>& vec) {
@@ -35,11 +32,9 @@ long long getTime()
 }
 
 void print_lista(const std::list<int>& lista) {
-    // Declarando um iterador para percorrer a lista
     std::list<int>::const_iterator it;
     std::list<int>::const_iterator next;
 
-    // Iterando pela lista e imprimindo os elementos
     for (it = lista.begin(); it != lista.end(); ++it) {
         std::cout << *it;
         next = it;

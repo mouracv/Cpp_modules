@@ -54,7 +54,7 @@ eval:	$(NAME)
 	@echo "\n$(YELLOW)Teste 7$(END)"
 	./$(NAME) "4 2 + 3 5 1 - * + 2 /"
 	@echo "\n$(YELLOW)Teste 8$(END)"
-	./$(NAME) "8 3 / 5 2 * + 4 -"
+	./$(NAME) "8 0 / 5 2 * + 4 -"
 	@echo "\n$(YELLOW)Teste 9$(END)"
 	./$(NAME) "6 2 3 + - 3 8 2 / + *"
 	@echo "\n$(YELLOW)Teste 10$(END)"

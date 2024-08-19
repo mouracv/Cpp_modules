@@ -10,19 +10,20 @@ bool isTokenOpr(char c)
 
 void err(int opc)
 {
-    std::cout << RED;
-    if (opc == 1)
-        std::cerr << RED << "Error: Invalid argument💀.\n";
-    else if (opc == 2)
-        std::cerr << RED << "Error: Invalid division for 0.\n";
-    else if (opc == 3)
-        std::cerr << RED << "Error: Not enougth numbers for calculation.\n";
-    else if (opc == 4)
-        std::cerr << RED << "Error: Invalid character.\n";
-    else
-        std::cerr << RED << "Error: Not enougth operators.\n";
+    std::cerr << RED;
 
-    std::cout << END;
+    if (opc == 1)
+        std::cerr << "Error: Invalid argument💀.\n";
+    else if (opc == 2)
+        std::cerr << "Error: Invalid division for 0.\n";
+    else if (opc == 3)
+        std::cerr << "Error: Not enougth numbers for calculation.\n";
+    else if (opc == 4)
+        std::cerr << "Error: Invalid character.\n";
+    else
+        std::cerr << "Error: Not enougth operators.\n";
+
+    std::cerr << END;
 }
 
 bool checkChar(char c)
@@ -63,7 +64,7 @@ int calculator(std::stack<int>& datastack, char opt, int& flag)
         case '/':
         {
             if (first == 0)
-                return(err(2), 1);
+                return((std::cerr << std::endl), err(2), 1);
             res = sec / first;
             datastack.push(res);  
             break;

@@ -1,14 +1,4 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/06/30 19:04:42 by aleperei         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+
 
 NAME = btc
 CXX = c++
@@ -41,7 +31,7 @@ fclean: clean
 re: fclean all
 
 data:
-	@wget -q https://cdn.intra.42.fr/document/document/25699/cpp_09.tgz
+	@wget -q https://cdn.intra.42.fr/document/document/27358/cpp_09.tgz
 	@tar -xzf cpp_09.tgz
 	@mv cpp_09/data.csv .
 	@rm -rf cpp_09.tgz cpp_09
