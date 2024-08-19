@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 18:52:21 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/30 19:04:28 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/08/19 11:31:31 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,14 @@
 #include <stack>
 #include <list>
 
+/*
+    This will allow us to specify the base container when we declare a 
+    MutantStack object and if we dont specify the class will use 
+    std::deque as the base conteiner 
+*/
 
-template<typename T>
-class MutantStack : public std::stack<T>
+template<typename T, typename U = std::deque<T> >
+class MutantStack : public std::stack<T, U>
 {
     public:
         MutantStack(void)
@@ -55,14 +60,23 @@ class MutantStack : public std::stack<T>
     
     public:
         typedef typename std::stack<T>::container_type::iterator iterator;
+        typedef typename std::stack<T>::container_type::const_iterator const_iterator;
+        typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
+        typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
-        iterator begin(void){
-            return(this->c.begin());
-        }
+        iterator begin(void){ return(this->c.begin()); }
+        iterator end(void){ return(this->c.end()); }
+        
+        const_iterator cbegin(void){ return(this->c.cbegin()); }
+        const_iterator cend(void){ return(this->c.cend()); }
 
-        iterator end(void){
-            return(this->c.end());
-        }
+        reverse_iterator rbegin(void){ return(this->c.rbegin()); }
+        reverse_iterator rend(void){ return(this->c.rend()); }
+
+        const_reverse_iterator crbegin(void){ return(this->c.crbegin()); }
+        const_reverse_iterator crend(void){ return(this->c.crend()); }
+
+        
 };
 
 
