@@ -10,7 +10,6 @@ void sortList(std::list<int>& content)
     std::list<int>::iterator prev = content.begin();
     std::list<int> mins, maxs;
     
-    // next++;
     for(size_t i = 0; i < (content.size() - 1); i += 2)
     {
         if (*prev <= *next)
@@ -31,30 +30,12 @@ void sortList(std::list<int>& content)
     if (content.size() % 2)
         maxs.push_back(content.back());
 
-    // print_lista(mins);    
-    // print_lista(maxs);
-    // std::cout << YELLOW << "Recursividade Merge" << END << std::endl;
-    // print_lista(mins);
-    // print_lista(maxs);
-    // std::cout << "**********************" << std::endl;
-
     sortList(mins);
-    // return;
-
-    // std::cout << "Insertion" << std::endl;
-    // print_lista(mins);
-    // print_lista(maxs);
-    // std::cout << "**********************" << std::endl;
 
     for (next = maxs.begin(); (next != maxs.end()); next++)
         mins.insert(std::upper_bound(mins.begin(), mins.end(), *next), *next);
-    
-    // std::cout << "Afther Insertion" << std::endl;
-    // print_lista(mins);
-    // std::cout << RED << "**********************" <<  END << std::endl;
 
     content = mins;
-    
 }
 
 void sortVector(std::vector<int>& content)
@@ -67,7 +48,6 @@ void sortVector(std::vector<int>& content)
 
     while (it != (content.end()) && (it + 1) != (content.end()))
     {
-        // // std::cout << "Loop de divisao" << std::endl;
         if (*it <= *(it + 1))
         {
             mins.push_back(*it);
@@ -83,26 +63,13 @@ void sortVector(std::vector<int>& content)
     
     if ((content.size() % 2))
         maxs.push_back(content.back());
-    
-    //Merge sort
-    // std::cout << YELLOW << "Recursividade Merge" << END << std::endl;
-    // printVector(mins);
-    // printVector(maxs);
-    // std::cout << "**********************" << std::endl;
+
     sortVector(mins);
 
-    // std::cout << "Insertion" << std::endl;
-    // printVector(mins);
-    // printVector(maxs);
-    // std::cout << "**********************" << std::endl;
     for (size_t i = 0; i < maxs.size(); i++)
         mins.insert(std::upper_bound(mins.begin(), mins.end(), maxs[i]), maxs[i]);
     
-    // std::cout << "Afther Insertion" << std::endl;
-    // printVector(mins);
-    // std::cout << "**********************" << std::endl;
     content = mins;
-
 }
 
 void PmergeMe(char **av)
@@ -122,7 +89,8 @@ void PmergeMe(char **av)
         return;
     }
     printText(vectorContent);
-
+    std::cout << std::endl;
+    
     startvec = getTime();
     sortVector(vectorContent);
     endvec = getTime();

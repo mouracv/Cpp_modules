@@ -24,5 +24,7 @@ bool isSorted(std::vector<int>::iterator first, std::vector<int>::iterator last)
 void printResult(long long begin, long long end, std::vector<int>* vec, std::list<int>* lst, int size);
 long long getTime();
 void printText(std::vector<int> copy);
+void printVector(const std::vector<int>& vec);
+void print_lista(const std::list<int>& lista);
 
 #endif

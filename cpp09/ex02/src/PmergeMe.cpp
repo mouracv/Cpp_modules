@@ -70,7 +70,7 @@ bool fillConteiners(char** av, std::vector<int>& vectorContent, std::list<int>& 
     for (size_t i = 1; av[i]; i++)
     {
         value = strtol(av[i], &end, 10);
-        if (*end != '\0' || errno == ERANGE || value < 0)
+        if (!*av[i] || *end || errno == ERANGE || value < 0)
             return(err(2), 0);
         
         vectorContent.push_back(value);
@@ -86,7 +86,7 @@ bool fillConteiners(char** av, std::vector<int>& vectorContent, std::list<int>& 
 void printText(std::vector<int> copy)
 {
     std::cout << "Before: ";
-    for(size_t i = 0; i < 5 ; i++)
+    for(size_t i = 0; i < copy.size() ; i++)
         std::cout << copy[i] << ' ';
 
     if (copy.size() > 5)
@@ -96,7 +96,7 @@ void printText(std::vector<int> copy)
     std::sort(copy.begin(), copy.end());
     
     std::cout << "Afther: ";
-    for(size_t i = 0; i < 5 ; i++)
+    for(size_t i = 0; i < copy.size() ; i++)
         std::cout << copy[i] << ' ';
 
     if (copy.size() > 5)
@@ -133,3 +133,65 @@ void printResult(long long begin, long long end, std::vector<int>* vec, std::lis
 
     std::cout << (end - begin) << " us" << std::endl;
 }
+
+/*void sortVector(std::vector<int>& content)
+{
+    static int nb;
+    std::cout << GREEN << "VECTOR " << ++nb  << " START" << END << std::endl;
+
+    if (content.size() == 1)
+    {
+        std::cout << RED << "VECTOR " << nb--  << " END" << END << std::endl;
+        return;
+    }
+
+    std::vector<int>::iterator it = content.begin();
+    std::vector<int> mins, maxs;
+
+    std::cout << YELLOW << "Before Loop" << END << std::endl << "CONTENT: ";
+    printVector(content);
+    std::cout << std::endl;
+
+    while (it != (content.end()) && (it + 1) != (content.end()))
+    {
+        if (*it <= *(it + 1))
+        {
+            mins.push_back(*it);
+            maxs.push_back(*(it + 1));
+        }
+        else
+        {
+            mins.push_back(*(it + 1));
+            maxs.push_back(*it);
+        }
+        it += 2;
+    }
+    
+    if ((content.size() % 2))
+        maxs.push_back(content.back());
+    
+    //Merge sort
+    std::cout << YELLOW << "After Loop - Merge" << END << std::endl << "MINS: ";
+    printVector(mins);
+    std::cout << std::endl << "MAXS: ";
+    printVector(maxs);
+    std::cout << std::endl << MAGENTA << "**********************" << END << std::endl;
+
+    sortVector(mins);
+
+    //insertion
+    std::cout << std::endl << BLUE << "Insertion" << END << std::endl << "MINS: ";
+    printVector(mins);
+    std::cout << std::endl << "MAXS: ";
+    printVector(maxs);
+    // std::cout << std::endl << "**********************" << std::endl;
+    for (size_t i = 0; i < maxs.size(); i++)
+        mins.insert(std::upper_bound(mins.begin(), mins.end(), maxs[i]), maxs[i]);
+    
+    std::cout << BLUE << std::endl << "After Insertion" << END << std::endl << "RESULT: ";
+    printVector(mins);
+    content = mins;
+
+    std::cout << std::endl << RED << "VECTOR " << nb--  << " END" << END << std::endl;
+    std::cout << MAGENTA << "**********************" << END << std::endl;
+}*/
