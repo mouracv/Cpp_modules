@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:43:45 by aleperei          #+#    #+#             */
-/*   Updated: 2024/08/19 16:57:22 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:02:10 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,34 +39,22 @@ template<typename T> class Array
         
         Array(const Array& copy) : _content(NULL), _length(0)
         {
-            if (copy._content)
-            {
-                _content = new T[copy._length];
-                _length = copy._length;
-                for (unsigned int i = 0; i < _length; i++)
-                    _content[i] = copy._content[i];
-            }
+            *this = copy;
         }
           
         Array& operator=(const Array& other)
         {
             if (this != &other)
             {
-                if (this->_content)
+                if (this->_content && other._content)
                 {
                     delete [] this->_content;
-                    _content = NULL;
-                    _length = 0;
-                }
-                
-                if (other._content)
-                {
                     this->_content = new T[other._length];
                     this->_length = other._length;
-                    
                     for (unsigned int i = 0; i < this->_length; i++)
                         this->_content[i] = other._content[i];
-                }    
+                }
+        
             }
             return(*this);
         }
@@ -77,11 +65,11 @@ template<typename T> class Array
                 delete [] _content;
         } 
 
-        int size(void){
+        int size(void) const {
             return(static_cast<int>(_length));
         }
         
-        T& operator[](int index)
+        T& operator[](int index) const
         {
             if (index < 0 || index >= size())
                 throw(Array<T>::Boundary());

@@ -6,13 +6,13 @@
 #    By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/14 16:29:27 by aleperei          #+#    #+#              #
-#    Updated: 2024/06/17 18:15:10 by aleperei         ###   ########.fr        #
+#    Updated: 2024/08/29 15:52:47 by aleperei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = array
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRCDIR = .
 OBJDIR = obj
