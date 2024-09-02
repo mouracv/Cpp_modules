@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:18:47 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/28 14:19:41 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:32:04 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ class Span
         int longestSpan(void);
         int shortestSpan(void);
         void addNumber(int value);
-        void mutantRange(void);
         void upgradeAddNumber(void);
+        void mutantRange(std::vector<int>::iterator first, std::vector<int>::iterator last);
+        std::vector<int>::iterator begin();
+        std::vector<int>::iterator end();
     
     public:
         class Boundary : public std::exception

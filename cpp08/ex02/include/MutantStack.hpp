@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 18:52:21 by aleperei          #+#    #+#             */
-/*   Updated: 2024/08/19 11:31:31 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:17:31 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,12 @@ class MutantStack : public std::stack<T, U>
         ~MutantStack(void) {}
     
     public:
-        typedef typename std::stack<T>::container_type::iterator iterator;
-        typedef typename std::stack<T>::container_type::const_iterator const_iterator;
-        typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
-        typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
+        // typedef typename std::stack<T>::container_type::iterator iterator;
+        // You can do it in a way or another
+        typedef typename U::iterator iterator;
+        typedef typename U::const_iterator const_iterator;
+        typedef typename U::reverse_iterator reverse_iterator;
+        typedef typename U::const_reverse_iterator const_reverse_iterator;
 
         iterator begin(void){ return(this->c.begin()); }
         iterator end(void){ return(this->c.end()); }

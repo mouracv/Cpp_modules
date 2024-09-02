@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 16:26:05 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/28 14:43:56 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:32:26 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,22 @@ void Span::upgradeAddNumber(void)
     }
 }
 
-void Span::mutantRange(void)
+std::vector<int>::iterator Span::begin(void){
+    return(_content.begin());
+}
+
+std::vector<int>::iterator Span::end(void){
+    return(_content.end());
+}
+
+void Span::mutantRange(std::vector<int>::iterator first, std::vector<int>::iterator last)
 {
     srand(time(NULL));
     if (_content.size() == _content.capacity())
         throw(Span::Boundary("Span class is full!"));
-
-    std::vector<int> tmp;
-    tmp.reserve(_content.capacity());
-    for (size_t i = 0; i <tmp.capacity(); i++)
-        tmp.push_back(rand() % (10000 - 0 + 1));
-  
+    
     _content.insert((_content.begin() + _content.size()),\
-        (tmp.begin() + _content.size()), tmp.end());
+        (first + _content.size()), last);
 }
 
 int Span::shortestSpan(void)
@@ -103,7 +106,6 @@ int Span::longestSpan(void)
         throw(Span::Boundary("Not enougth elements to compare!"));
     
     std::vector<int> tmp(_content);
-    
     std::sort(tmp.begin(), tmp.end());
     return((tmp.back() - tmp.front()));
 }

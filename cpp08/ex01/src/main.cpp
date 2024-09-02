@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:35:41 by aleperei          #+#    #+#             */
-/*   Updated: 2024/06/28 14:33:25 by aleperei         ###   ########.fr       */
+/*   Updated: 2024/09/02 16:33:31 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ int main(void)
     
     std::cout << std::endl << BLUE;
     std::cout << "Filling Span with RANGE ITERATORS!" << RESET << std::endl;
+    Span alex(21);
+    alex.upgradeAddNumber();
+    
     Span range1(21);
-    range1.mutantRange();
+    range1.mutantRange(alex.begin(), alex.end());
     range1.printSpan();
 
     std::cout << std::endl << BLUE;
