@@ -21,3 +21,7 @@ The objective of these modules is to introduce us to C++ and help us gain basic 
 - [Cpp 08](https://github.com/mouracv/Cpp_modules/tree/main/cpp08) - Templated containers, iterators, and algorithms.
 
 - [Cpp 09](https://github.com/mouracv/Cpp_modules/tree/main/cpp09) - Standard Template Library (STL).
+
+## 👨‍💻 Autor
+- [GitHub](https://github.com/mouracv)
+- [Linkedin](https://www.linkedin.com/in/alexsandro-moreira-2b438a347/)
