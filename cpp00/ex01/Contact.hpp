@@ -6,7 +6,7 @@
 /*   By: aleperei <aleperei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 12:52:16 by aleperei          #+#    #+#             */
-/*   Updated: 2024/04/15 16:39:41 by aleperei         ###   ########.fr       */
+/*   Updated: 2025/02/01 17:48:24 by aleperei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Contact
         std::string nick_name;
         std::string phone_number;
         std::string drakest_secret;        
+    
     public:
         Contact(void);
         
